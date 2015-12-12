@@ -36,7 +36,8 @@ class MainViewController: UITabBarController {
     }
     
     private func addChildViewControllers() {
-    
+        //调用pch 的tool工具设置颜色
+        tabBar.tintColor = themeColor
         addChildViewController("首页", imageName: "tabbar_home", vc: HomeTableViewController())
         addChildViewController("消息", imageName: "tabbar_message_center", vc: MessageTableViewController())
         addChildViewController("发现", imageName: "tabbar_discover", vc: DiscoverTableViewController())
@@ -45,7 +46,7 @@ class MainViewController: UITabBarController {
     
     private func addChildViewController(title:String , imageName:String,vc:UIViewController) {
         
-        tabBar.tintColor = UIColor.orangeColor()
+        
         //添加Tabbaritem Controller
         let nav = UINavigationController(rootViewController: vc)
         vc.title = title

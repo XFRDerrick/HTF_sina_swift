@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7CE0252C1C1C6B3700A16B7C /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE0252B1C1C6B3700A16B7C /* MainTabBar.swift */; };
+		7CE025301C1C805100A16B7C /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE0252F1C1C805100A16B7C /* BaseTableViewController.swift */; };
+		7CE025331C1C875400A16B7C /* VisitorLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE025321C1C875400A16B7C /* VisitorLoginView.swift */; };
+		7CE025351C1C8AF600A16B7C /* commom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE025341C1C8AF600A16B7C /* commom.swift */; };
 		7CE2112D1C1BC0FD004212F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE2112C1C1BC0FD004212F1 /* AppDelegate.swift */; };
 		7CE211341C1BC0FD004212F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CE211331C1BC0FD004212F1 /* Assets.xcassets */; };
 		7CE211421C1BC0FD004212F1 /* sina_htfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE211411C1BC0FD004212F1 /* sina_htfTests.swift */; };
@@ -38,6 +41,9 @@
 
 /* Begin PBXFileReference section */
 		7CE0252B1C1C6B3700A16B7C /* MainTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
+		7CE0252F1C1C805100A16B7C /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
+		7CE025321C1C875400A16B7C /* VisitorLoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorLoginView.swift; sourceTree = "<group>"; };
+		7CE025341C1C8AF600A16B7C /* commom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = commom.swift; sourceTree = "<group>"; };
 		7CE211291C1BC0FD004212F1 /* sina_htf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sina_htf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CE2112C1C1BC0FD004212F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CE211331C1BC0FD004212F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -80,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7CE025311C1C86BD00A16B7C /* VisitorLoginView */ = {
+			isa = PBXGroup;
+			children = (
+				7CE025321C1C875400A16B7C /* VisitorLoginView.swift */,
+			);
+			path = VisitorLoginView;
+			sourceTree = "<group>";
+		};
 		7CE211201C1BC0FD004212F1 = {
 			isa = PBXGroup;
 			children = (
@@ -178,8 +192,10 @@
 		7CE211DD1C1BE39A004212F1 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				7CE025311C1C86BD00A16B7C /* VisitorLoginView */,
 				7CE211E41C1BE4DB004212F1 /* MainViewController.swift */,
 				7CE0252B1C1C6B3700A16B7C /* MainTabBar.swift */,
+				7CE0252F1C1C805100A16B7C /* BaseTableViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -203,6 +219,7 @@
 		7CE211E01C1BE39A004212F1 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				7CE025341C1C8AF600A16B7C /* commom.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -348,11 +365,14 @@
 			files = (
 				7CE211ED1C1BE54C004212F1 /* ProfileTableViewController.swift in Sources */,
 				7CE211E71C1BE4F5004212F1 /* HomeTableViewController.swift in Sources */,
+				7CE025301C1C805100A16B7C /* BaseTableViewController.swift in Sources */,
 				7CE0252C1C1C6B3700A16B7C /* MainTabBar.swift in Sources */,
 				7CE2112D1C1BC0FD004212F1 /* AppDelegate.swift in Sources */,
 				7CE211E91C1BE52C004212F1 /* MessageTableViewController.swift in Sources */,
 				7CE211EB1C1BE53E004212F1 /* DiscoverTableViewController.swift in Sources */,
+				7CE025331C1C875400A16B7C /* VisitorLoginView.swift in Sources */,
 				7CE211E51C1BE4DB004212F1 /* MainViewController.swift in Sources */,
+				7CE025351C1C8AF600A16B7C /* commom.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
