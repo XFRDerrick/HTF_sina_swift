@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		7CE2112D1C1BC0FD004212F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE2112C1C1BC0FD004212F1 /* AppDelegate.swift */; };
-		7CE2112F1C1BC0FD004212F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE2112E1C1BC0FD004212F1 /* ViewController.swift */; };
-		7CE211321C1BC0FD004212F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CE211301C1BC0FD004212F1 /* Main.storyboard */; };
 		7CE211341C1BC0FD004212F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CE211331C1BC0FD004212F1 /* Assets.xcassets */; };
-		7CE211371C1BC0FD004212F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CE211351C1BC0FD004212F1 /* LaunchScreen.storyboard */; };
 		7CE211421C1BC0FD004212F1 /* sina_htfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE211411C1BC0FD004212F1 /* sina_htfTests.swift */; };
 		7CE2114D1C1BC0FD004212F1 /* sina_htfUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE2114C1C1BC0FD004212F1 /* sina_htfUITests.swift */; };
+		7CE211E51C1BE4DB004212F1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE211E41C1BE4DB004212F1 /* MainViewController.swift */; };
+		7CE211E71C1BE4F5004212F1 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE211E61C1BE4F5004212F1 /* HomeTableViewController.swift */; };
+		7CE211E91C1BE52C004212F1 /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE211E81C1BE52C004212F1 /* MessageTableViewController.swift */; };
+		7CE211EB1C1BE53E004212F1 /* DiscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE211EA1C1BE53E004212F1 /* DiscoverTableViewController.swift */; };
+		7CE211ED1C1BE54C004212F1 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE211EC1C1BE54C004212F1 /* ProfileTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,10 +38,7 @@
 /* Begin PBXFileReference section */
 		7CE211291C1BC0FD004212F1 /* sina_htf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sina_htf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CE2112C1C1BC0FD004212F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7CE2112E1C1BC0FD004212F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7CE211311C1BC0FD004212F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7CE211331C1BC0FD004212F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7CE211361C1BC0FD004212F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CE211381C1BC0FD004212F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CE2113D1C1BC0FD004212F1 /* sina_htfTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sina_htfTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CE211411C1BC0FD004212F1 /* sina_htfTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sina_htfTests.swift; sourceTree = "<group>"; };
@@ -47,6 +46,11 @@
 		7CE211481C1BC0FD004212F1 /* sina_htfUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sina_htfUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CE2114C1C1BC0FD004212F1 /* sina_htfUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sina_htfUITests.swift; sourceTree = "<group>"; };
 		7CE2114E1C1BC0FD004212F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CE211E41C1BE4DB004212F1 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		7CE211E61C1BE4F5004212F1 /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		7CE211E81C1BE52C004212F1 /* MessageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
+		7CE211EA1C1BE53E004212F1 /* DiscoverTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewController.swift; sourceTree = "<group>"; };
+		7CE211EC1C1BE54C004212F1 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,11 +101,9 @@
 		7CE2112B1C1BC0FD004212F1 /* sina_htf */ = {
 			isa = PBXGroup;
 			children = (
+				7CE211D81C1BE39A004212F1 /* Classes */,
 				7CE2112C1C1BC0FD004212F1 /* AppDelegate.swift */,
-				7CE2112E1C1BC0FD004212F1 /* ViewController.swift */,
-				7CE211301C1BC0FD004212F1 /* Main.storyboard */,
 				7CE211331C1BC0FD004212F1 /* Assets.xcassets */,
-				7CE211351C1BC0FD004212F1 /* LaunchScreen.storyboard */,
 				7CE211381C1BC0FD004212F1 /* Info.plist */,
 			);
 			path = sina_htf;
@@ -123,6 +125,90 @@
 				7CE2114E1C1BC0FD004212F1 /* Info.plist */,
 			);
 			path = sina_htfUITests;
+			sourceTree = "<group>";
+		};
+		7CE211D81C1BE39A004212F1 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7CE211D91C1BE39A004212F1 /* Model */,
+				7CE211DA1C1BE39A004212F1 /* Module */,
+				7CE211E01C1BE39A004212F1 /* Tools */,
+				7CE211E11C1BE39A004212F1 /* ViewModle */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		7CE211D91C1BE39A004212F1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7CE211DA1C1BE39A004212F1 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				7CE211DD1C1BE39A004212F1 /* Main */,
+				7CE211DC1C1BE39A004212F1 /* Home */,
+				7CE211DE1C1BE39A004212F1 /* Message */,
+				7CE211DB1C1BE39A004212F1 /* Discover */,
+				7CE211DF1C1BE39A004212F1 /* Profile */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		7CE211DB1C1BE39A004212F1 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				7CE211EA1C1BE53E004212F1 /* DiscoverTableViewController.swift */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		7CE211DC1C1BE39A004212F1 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				7CE211E61C1BE4F5004212F1 /* HomeTableViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		7CE211DD1C1BE39A004212F1 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				7CE211E41C1BE4DB004212F1 /* MainViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		7CE211DE1C1BE39A004212F1 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				7CE211E81C1BE52C004212F1 /* MessageTableViewController.swift */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		7CE211DF1C1BE39A004212F1 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				7CE211EC1C1BE54C004212F1 /* ProfileTableViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		7CE211E01C1BE39A004212F1 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		7CE211E11C1BE39A004212F1 /* ViewModle */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,9 +318,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CE211371C1BC0FD004212F1 /* LaunchScreen.storyboard in Resources */,
 				7CE211341C1BC0FD004212F1 /* Assets.xcassets in Resources */,
-				7CE211321C1BC0FD004212F1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +343,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CE2112F1C1BC0FD004212F1 /* ViewController.swift in Sources */,
+				7CE211ED1C1BE54C004212F1 /* ProfileTableViewController.swift in Sources */,
+				7CE211E71C1BE4F5004212F1 /* HomeTableViewController.swift in Sources */,
 				7CE2112D1C1BC0FD004212F1 /* AppDelegate.swift in Sources */,
+				7CE211E91C1BE52C004212F1 /* MessageTableViewController.swift in Sources */,
+				7CE211EB1C1BE53E004212F1 /* DiscoverTableViewController.swift in Sources */,
+				7CE211E51C1BE4DB004212F1 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,25 +382,6 @@
 			targetProxy = 7CE211491C1BC0FD004212F1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		7CE211301C1BC0FD004212F1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7CE211311C1BC0FD004212F1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		7CE211351C1BC0FD004212F1 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7CE211361C1BC0FD004212F1 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		7CE2114F1C1BC0FD004212F1 /* Debug */ = {
@@ -402,10 +471,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = sina_htf/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.somethinginteresting.sina-htf";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -413,10 +485,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = sina_htf/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.somethinginteresting.sina-htf";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
