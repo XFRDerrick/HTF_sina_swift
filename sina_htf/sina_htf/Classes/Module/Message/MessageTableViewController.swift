@@ -19,7 +19,7 @@ class MessageTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        view.backgroundColor = UIColor.redColor()
+        
     }
 
     override func didReceiveMemoryWarning() {
