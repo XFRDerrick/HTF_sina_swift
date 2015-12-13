@@ -201,7 +201,7 @@ extension OAuthViewController: UIWebViewDelegate {
                         
                         //获取用户的完整自定义对象
                         //存储自定义对象
-                        
+                        account.saveAccount()
                         print(avatar_large,name)
                     }
                 }) { (_, error) -> Void in

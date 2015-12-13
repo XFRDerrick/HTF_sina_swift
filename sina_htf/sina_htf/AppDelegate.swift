@@ -17,6 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         //需要创建window
+        
+        //
+        let account = UserAccount.loadAccount()
+        print(account)
+        
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         window?.backgroundColor = UIColor.whiteColor()
