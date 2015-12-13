@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7C8EDE751C1D1AFA00DF69B6 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8EDE741C1D1AFA00DF69B6 /* OAuthViewController.swift */; };
+		7CDBF8901C1DDD3200579199 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDBF88F1C1DDD3200579199 /* UserAccount.swift */; };
 		7CE0252C1C1C6B3700A16B7C /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE0252B1C1C6B3700A16B7C /* MainTabBar.swift */; };
 		7CE025301C1C805100A16B7C /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE0252F1C1C805100A16B7C /* BaseTableViewController.swift */; };
 		7CE025331C1C875400A16B7C /* VisitorLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE025321C1C875400A16B7C /* VisitorLoginView.swift */; };
@@ -45,6 +46,7 @@
 		1DCD64D8A849D3B97C8F8BD8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		2AAD74764925C9FA2294C88C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C8EDE741C1D1AFA00DF69B6 /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
+		7CDBF88F1C1DDD3200579199 /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAccount.swift; path = sina_htf/Classes/Model/UserAccount.swift; sourceTree = SOURCE_ROOT; };
 		7CE0252B1C1C6B3700A16B7C /* MainTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		7CE0252F1C1C805100A16B7C /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		7CE025321C1C875400A16B7C /* VisitorLoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorLoginView.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 		7CE211D91C1BE39A004212F1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7CDBF88F1C1DDD3200579199 /* UserAccount.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				7CE211E91C1BE52C004212F1 /* MessageTableViewController.swift in Sources */,
 				7CE211EB1C1BE53E004212F1 /* DiscoverTableViewController.swift in Sources */,
 				7CE025331C1C875400A16B7C /* VisitorLoginView.swift in Sources */,
+				7CDBF8901C1DDD3200579199 /* UserAccount.swift in Sources */,
 				7CE211E51C1BE4DB004212F1 /* MainViewController.swift in Sources */,
 				7C8EDE751C1D1AFA00DF69B6 /* OAuthViewController.swift in Sources */,
 				7CE025351C1C8AF600A16B7C /* commom.swift in Sources */,

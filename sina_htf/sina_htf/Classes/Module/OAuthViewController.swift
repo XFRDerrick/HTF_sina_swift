@@ -158,12 +158,14 @@ extension OAuthViewController: UIWebViewDelegate {
                 print(result)
                 //成功获取token
                 //获取用户信息成功
-                if let dict = result {
-                    let token = dict["access_token"] as! String
+                if let dict = result as? [String : AnyObject] {
+                    //字典转模型
+                    let userAccount = UserAccount(dict: dict )
                     
-                    let uid = dict["uid"] as! String
+                    self.loadUserInfo(userAccount)
                     
-                    self.loadUserInfo(token, uid: uid)
+                    print("----------------------------------------------------")
+                    print(userAccount)
                 }
                 
                 
@@ -175,28 +177,38 @@ extension OAuthViewController: UIWebViewDelegate {
         
     }
     //MARK: - 获取用户信息
-    private func loadUserInfo(token:String ,uid:String){
+    private func loadUserInfo(account: UserAccount ){
         
         let urlString = "https://api.weibo.com/2/users/show.json"
-        let parameters = ["access_token": token,"uid":uid]
-        let AFN = AFHTTPSessionManager()
         
-        AFN.GET(urlString, parameters: parameters, progress: { (_) -> Void in
+        //制定 中不能存放nil
+        if let token = account.access_token,userId = account.uid{
             
-            }, success: { (_, result) -> Void in
-                print(result)
-                if let dict = result {
-                    //用户信息
-                    let avatar_large = dict["avatar_large"] as! String
-                    let name = dict["name"] as! String
-                    
-                    print(avatar_large,name)
-                }
-            }) { (_, error) -> Void in
-                 print(error)
+            let parameters = ["access_token": token,"uid":userId]
+            let AFN = AFHTTPSessionManager()
+            
+            AFN.GET(urlString, parameters: parameters, progress: { (_) -> Void in
+                
+                }, success: { (_, result) -> Void in
+                    print(result)
+                    if let dict = result {
+                        //用户信息
+                        let avatar_large = dict["avatar_large"] as! String
+                        let name = dict["name"] as! String
+                        //给account 对象的属性做赋值操作
+                        account.name = name
+                        account.avatar_large = avatar_large
+                        
+                        //获取用户的完整自定义对象
+                        //存储自定义对象
+                        
+                        print(avatar_large,name)
+                    }
+                }) { (_, error) -> Void in
+                    print(error)
+            }
         }
-
-    
+        
     }
     
     
