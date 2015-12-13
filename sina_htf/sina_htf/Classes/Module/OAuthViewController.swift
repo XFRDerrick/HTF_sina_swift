@@ -9,7 +9,7 @@
 import UIKit
 
 import SVProgressHUD
-
+import AFNetworking
 class OAuthViewController: UIViewController {
 
     
@@ -146,10 +146,59 @@ extension OAuthViewController: UIWebViewDelegate {
     }
     
     private func loadAccssToken(code:String){
-    
         
+        let urlString = "https://api.weibo.com/oauth2/access_token"
+        let parameters = ["client_id":client_id, "client_secret":client_secret, "grant_type": "authorization_code", "code":code, "redirect_uri":redirect_uri]
+        
+        let AFN = AFHTTPSessionManager()
+        AFN.responseSerializer.acceptableContentTypes?.insert("text/plain")
+        AFN.POST(urlString, parameters: parameters, progress: { (p) -> Void in
+            print(p)
+            }, success: { (_, result) -> Void in
+                print(result)
+                //成功获取token
+                //获取用户信息成功
+                if let dict = result {
+                    let token = dict["access_token"] as! String
+                    
+                    let uid = dict["uid"] as! String
+                    
+                    self.loadUserInfo(token, uid: uid)
+                }
+                
+                
+                
+                
+            }) { (__, error) -> Void in
+                print(error)
+        }
         
     }
+    //MARK: - 获取用户信息
+    private func loadUserInfo(token:String ,uid:String){
+        
+        let urlString = "https://api.weibo.com/2/users/show.json"
+        let parameters = ["access_token": token,"uid":uid]
+        let AFN = AFHTTPSessionManager()
+        
+        AFN.GET(urlString, parameters: parameters, progress: { (_) -> Void in
+            
+            }, success: { (_, result) -> Void in
+                print(result)
+                if let dict = result {
+                    //用户信息
+                    let avatar_large = dict["avatar_large"] as! String
+                    let name = dict["name"] as! String
+                    
+                    print(avatar_large,name)
+                }
+            }) { (_, error) -> Void in
+                 print(error)
+        }
+
+    
+    }
+    
     
     
 }

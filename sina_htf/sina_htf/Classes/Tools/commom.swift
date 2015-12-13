@@ -19,3 +19,5 @@ let themeColor = UIColor.orangeColor()
 let client_id = "904005998"
 
 let redirect_uri = "http://www.baidu.com"
+
+let client_secret = "8beceb565a02f8656ba1e9eeccdb274b"
