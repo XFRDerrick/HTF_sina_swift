@@ -15,6 +15,13 @@ class BaseTableViewController: UITableViewController, VisitorLoginViewDelegate {
     
     func userWillLogin() {
         print(__FUNCTION__)
+        
+        let oauth = OAuthViewController()
+        
+        let nav = UINavigationController(rootViewController: oauth)
+      
+        presentViewController(nav, animated: true, completion: nil)
+        
     }
     
     
@@ -49,6 +56,11 @@ class BaseTableViewController: UITableViewController, VisitorLoginViewDelegate {
         view = visitorLoginView
         
         visitorLoginView?.visitorViewDelegate = self
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "登陆", style: .Plain, target: self, action: "userWillLogin")
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "注册", style: .Plain, target: self, action: "userWillRegister")
+        
         
     }
     

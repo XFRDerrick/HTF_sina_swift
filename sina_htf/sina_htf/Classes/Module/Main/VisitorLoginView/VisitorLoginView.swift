@@ -19,7 +19,6 @@ import UIKit
     
 }
 
-
 class VisitorLoginView: UIView {
 
     weak var visitorViewDelegate : VisitorLoginViewDelegate?
