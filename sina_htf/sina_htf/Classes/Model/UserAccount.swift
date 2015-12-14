@@ -73,8 +73,8 @@ class UserAccount: NSObject ,NSCoding{
     //获取沙盒保存信息
     //Class func 表示类方法
     class func loadAccount() -> UserAccount? {
+      
         //从磁盘中解档数据
-        
         let path  = (NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last! as NSString).stringByAppendingPathComponent("account.plist")
         
         if let account =  NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? UserAccount{

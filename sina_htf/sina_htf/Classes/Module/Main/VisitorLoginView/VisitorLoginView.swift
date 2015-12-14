@@ -8,8 +8,7 @@
 
 import UIKit
 
-//定义协议
-
+//MARK:- 定义协议
   protocol VisitorLoginViewDelegate: NSObjectProtocol {
 
     //用户将要登录
@@ -38,7 +37,7 @@ class VisitorLoginView: UIView {
             startAnimation()
         }
     }
-    
+    //MARK:- 设置方可师徒中的房子周边的动画效果
     private func startAnimation(){
     
         let anim = CABasicAnimation(keyPath: "transform.rotation")
@@ -61,6 +60,7 @@ class VisitorLoginView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK:- 添加视图中的子控件 并进行布局操作
     private func setupUI(){
         
         
@@ -127,6 +127,7 @@ class VisitorLoginView: UIView {
     /**
      按钮的监听事件
      */
+    //MARK:- 按钮的监听事件？？？
     @objc private func registerBtnDidClick(){
     
         visitorViewDelegate?.userWillRegister()
@@ -137,8 +138,8 @@ class VisitorLoginView: UIView {
     visitorViewDelegate?.userWillLogin()
     }
     
-    //懒加载所有的子视图
     
+    //MARK:- 懒加载所有的子视图
      private lazy var backView: UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_mask_smallicon"))
     private lazy var largeIcon : UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_image_house"))
     private lazy var circleView : UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_image_smallicon"))

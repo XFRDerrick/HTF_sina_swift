@@ -11,25 +11,24 @@ import UIKit
 import AFNetworking
 
 
-//封装网络请求
+//MARK:- 封装网络请求
 class UserAccountViewModel: NSObject {
     
     //定义用户模型对象属性
     var userAccount : UserAccount?
     
     override init() {
-    
         userAccount = UserAccount.loadAccount()
         super.init()
     }
-    //计算性属性 用户是否登录
+    //MARK:- 计算性属性 用户是否登录
     var userLogin :Bool {
         return userAccount?.access_token != nil
     }
     
     
     
-    //MARK: - 加载用户token （请求标识）
+    //MARK: - 加载用户token （请求标识） 添加回调闭包
     func loadAccssToken(code:String ,finish:(isSuccess: Bool) ->()){
         
         let urlString = "https://api.weibo.com/oauth2/access_token"

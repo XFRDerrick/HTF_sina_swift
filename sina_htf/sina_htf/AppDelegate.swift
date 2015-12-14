@@ -18,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         //需要创建window
         
-        //
+        //MARK:- 创建window
+        //MARK:- 是否登录
         let account = UserAccount.loadAccount()
         print("呵呵----\(account)")
         
