@@ -32,7 +32,8 @@ class BaseTableViewController: UITableViewController, VisitorLoginViewDelegate {
     
     
     //用户是否登录的标记
-    var userLogin = false
+    var userLogin = UserAccount.loadAccount() != nil
+    
     //新建属性访客视图
     var visitorLoginView: VisitorLoginView?
 

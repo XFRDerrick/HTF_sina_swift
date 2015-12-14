@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //
         let account = UserAccount.loadAccount()
-        print(account)
+        print("呵呵----\(account)")
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
