@@ -26,6 +26,11 @@ class UserAccountViewModel: NSObject {
         return userAccount?.access_token != nil
     }
     
+    //用户头像的url
+    var headURL: NSURL? {
+        let url = NSURL(string: userAccount?.avatar_large ?? "")
+        return url
+    }
     
     
     //MARK: - 加载用户token （请求标识） 添加回调闭包

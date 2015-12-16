@@ -82,7 +82,7 @@ class NewFeatureViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, didEndDisplayingCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         
         //Cell展示完成之后 对应的是显示的上一个的indexPath 不能获取使用indexPath获取Cell
-        print(indexPath.item)
+//        print(indexPath.item)
         let cell = collectionView.visibleCells().last as! NewFeatureCell
         
         //获取Cell的哦indexPath
@@ -159,7 +159,7 @@ class NewFeatureCell: UICollectionViewCell {
         UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: [], animations: { () -> Void in
              self.startBtn.transform = CGAffineTransformIdentity
             }) { (_) -> Void in
-                print("OK")
+//                print("OK")
         }
     }
     

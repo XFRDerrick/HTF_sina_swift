@@ -33,8 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        window?.rootViewController = MainViewController()
         
         //测试新特性
-        window?.rootViewController = NewFeatureViewController()
+//        window?.rootViewController = NewFeatureViewController()
         
+         window?.rootViewController = WelcomeViewController()
         return true
     }
 
