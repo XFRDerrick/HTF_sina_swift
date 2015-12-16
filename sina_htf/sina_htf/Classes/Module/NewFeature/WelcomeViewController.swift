@@ -57,7 +57,7 @@ class WelcomeViewController: UIViewController {
         
     }
     
-    //执行动画: 修改 iconView的底部约束
+    //MARK:- 执行动画: 修改 iconView的底部约束
     private func showAnimation() {
         
         
