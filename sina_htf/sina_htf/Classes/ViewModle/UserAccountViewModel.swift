@@ -54,7 +54,7 @@ class UserAccountViewModel: NSObject {
                     self.loadUserInfo(userAccount, finish: finish)
                     
                     print("----------------------------------------------------")
-                    print(userAccount)
+//                    print(userAccount)
                 }
                 
                 

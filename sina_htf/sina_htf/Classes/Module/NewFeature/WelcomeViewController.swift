@@ -94,6 +94,11 @@ class WelcomeViewController: UIViewController {
                     self.welcomeLable.alpha = 1
                     }, completion: { (_) -> Void in
                         print("OK")
+                        
+                        //动画结束的时候
+                        
+//                        NSNotificationCenter.defaultCenter().postNotificationName(WBSwitchRootVCNotification, object: nil)
+                        
                 })
         }
     }

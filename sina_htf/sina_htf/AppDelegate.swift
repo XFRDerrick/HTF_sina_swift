@@ -34,14 +34,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         //设置根控制器
         
-        //        window?.rootViewController = MainViewController()
+                window?.rootViewController = MainViewController()
         
         //测试新特性
         //        window?.rootViewController = NewFeatureViewController()
         
-        window?.rootViewController = defaultViewController()
+//        window?.rootViewController = defaultViewController()
         return true
     }
+    
+    //MARK:- 切换视图控制器的通知
+    private func registerNotification(){
+        //是个单例对象 程序一运行就会建立
+        //注册 切换视图控制器的通知
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "switchRootVC", name:WBSwitchRootVCNotification , object: nil)
+        
+        
+    }
+    //移除通知的操作，写于不写没有区别只是编码习惯问题
+    deinit{
+    
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    
+    private func switchRootVC(){
+        
+        
+    }
+    
     
     //MARK:- 根据判断是否登录显示具体的页面
     private func defaultViewController()-> UIViewController {

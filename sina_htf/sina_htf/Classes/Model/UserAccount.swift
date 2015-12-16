@@ -16,7 +16,6 @@ class UserAccount: NSObject ,NSCoding{
     //用于调用access_token，接口获取授权后的access token。
     var access_token: String?
     //access_token的生命周期，单位是秒数。
-//    var expires_in: String?
     var expires_in: NSTimeInterval = 0{
         
         didSet{
@@ -63,7 +62,7 @@ class UserAccount: NSObject ,NSCoding{
         
         //存储在沙盒中
         //字符串拼接路径的方法 在Xcode中被丢了  需要转换成NSString
-        let path = (NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last!  as NSString).stringByAppendingString("account.plist")
+        let path = (NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last!  as NSString).stringByAppendingString("/account.plist")
         print("沙盒保存路径 ： \(path)")
         
         //保存自定义对象
@@ -76,6 +75,8 @@ class UserAccount: NSObject ,NSCoding{
       
         //从磁盘中解档数据
         let path  = (NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last! as NSString).stringByAppendingPathComponent("account.plist")
+        
+        NSLog("获取 路径--%@",path);
         
         if let account =  NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? UserAccount{
         
@@ -105,9 +106,8 @@ class UserAccount: NSObject ,NSCoding{
     }
     //归档  将自定义对象转换成二进制数据  和序列化类似
     func encodeWithCoder(aCoder: NSCoder) {
-        
         aCoder.encodeObject(access_token ,forKey: "access_token")
-        aCoder.encodeObject(expires_in, forKey: "expires_in")
+        aCoder.encodeDouble(expires_in, forKey: "expires_in")
         aCoder.encodeObject(uid, forKey: "uid")
         aCoder.encodeObject(avatar_large ,forKey: "avatar_large")
         aCoder.encodeObject(name, forKey: "name")
