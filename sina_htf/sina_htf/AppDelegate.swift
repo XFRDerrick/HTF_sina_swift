@@ -39,9 +39,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //测试新特性
         //        window?.rootViewController = NewFeatureViewController()
         
-        window?.rootViewController = WelcomeViewController()
+        window?.rootViewController = defaultViewController()
         return true
     }
+    
+    //MARK:- 根据判断是否登录显示具体的页面
+    private func defaultViewController()-> UIViewController {
+    
+        if UserAccountViewModel().userLogin {
+        
+            
+//            return  isNewVersion() ? NewFeatureViewController() :WelcomeViewController()
+            if isNewVersion() {
+            
+                return NewFeatureViewController()
+            }
+            return WelcomeViewController()
+        }
+        //用户没有登录的
+        return MainViewController()
+    }
+    
     
     //MARK:- 判断是否是新版本
     private func isNewVersion() -> Bool{
