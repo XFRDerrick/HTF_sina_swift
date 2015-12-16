@@ -30,7 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         //设置根控制器
         
-        window?.rootViewController = MainViewController()
+//        window?.rootViewController = MainViewController()
+        
+        //测试新特性
+        window?.rootViewController = NewFeatureViewController()
         
         return true
     }

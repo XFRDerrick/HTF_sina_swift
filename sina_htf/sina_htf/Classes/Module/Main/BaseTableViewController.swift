@@ -6,9 +6,8 @@
 //  Copyright © 2015年 hetefe. All rights reserved.
 //
 
+
 import UIKit
-
-
 
 class BaseTableViewController: UITableViewController, VisitorLoginViewDelegate {
 
@@ -29,7 +28,6 @@ class BaseTableViewController: UITableViewController, VisitorLoginViewDelegate {
         
          print(__FUNCTION__)
     }
-    
     
    //MARK:- 用户是否登录的标记
     var userLogin = UserAccountViewModel().userLogin
@@ -62,7 +60,6 @@ class BaseTableViewController: UITableViewController, VisitorLoginViewDelegate {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "登陆", style: .Plain, target: self, action: "userWillLogin")
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "注册", style: .Plain, target: self, action: "userWillRegister")
-        
         
     }
     
