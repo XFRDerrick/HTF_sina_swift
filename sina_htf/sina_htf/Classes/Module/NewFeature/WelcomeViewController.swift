@@ -96,6 +96,8 @@ class WelcomeViewController: UIViewController {
                         print("OK")
                         //动画结束的时间  发出通知跳转控制器
                         NSNotificationCenter.defaultCenter().postNotificationName(WBSwitchRootVCNotification, object: nil)
+                        //控制器跳转的方式二  此方式需要在每一个需要跳转的地方设置此语句 维护较为繁琐 看情况适用
+                        //UIApplication.sharedApplication().keyWindow?.rootViewController = MainViewController()
                         
                 })
         }
