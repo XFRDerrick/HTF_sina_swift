@@ -61,20 +61,6 @@ class MainTabBar: UITabBar {
     
     //懒加载加号按钮
     //MARK:- 添加加号按钮的懒加载方法
-    lazy var composeBtn : UIButton = {
-        
-        let btn = UIButton()
-        btn.setImage(UIImage(named: "tabbar_compose_icon_add"), forState: .Normal)
-        btn.setImage(UIImage(named: "tabbar_compose_icon_add_highlighted"), forState: .Highlighted)
-        btn.setBackgroundImage(UIImage(named: "tabbar_compose_button"), forState: .Normal)
-        btn.setBackgroundImage(UIImage(named: "tabbar_compose_button_highlighted"), forState: .Highlighted)
-        btn.sizeToFit()
-        
-        
-        return btn
-    }()
-    
-    
-    
+    lazy var composeBtn : UIButton = UIButton(imageNameN: "tabbar_compose_icon_add", imageNameH: "tabbar_compose_icon_add_highlighted", backImageNameN: "tabbar_compose_button", backImageNameH: "tabbar_compose_button_highlighted")
     
 }

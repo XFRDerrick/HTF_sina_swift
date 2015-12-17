@@ -32,4 +32,18 @@ extension UIButton {
         sizeToFit()
     }
     
+    //convenience  表示便利构造函数
+    convenience init ( imageNameN:String, imageNameH:String , backImageNameN:String, backImageNameH:String?){
+        
+        self.init()
+        setImage(UIImage(named: "tabbar_compose_icon_add"), forState: .Normal)
+        setImage(UIImage(named: "tabbar_compose_icon_add_highlighted"), forState: .Highlighted)
+        setBackgroundImage(UIImage(named: "tabbar_compose_button"), forState: .Normal)
+        setBackgroundImage(UIImage(named: "tabbar_compose_button_highlighted"), forState: .Highlighted)
+        sizeToFit()
+    }
+    
+    
+    
+    
 }
