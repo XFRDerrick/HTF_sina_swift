@@ -15,68 +15,66 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-        //需要创建window
         
-        //MARK:- 创建window
-        //MARK:- 是否登录
-        let account = UserAccount.loadAccount()
-        print("呵呵----\(account)")
+        //需要创建window
+        // 是否登录
+//        let account = UserAccount.loadAccount()
+//        print("是否存储登陆过----\(account)")
         
         //判断是否是新的版本
-        let result =  isNewVersion()
-        print(result)
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         window?.backgroundColor = UIColor.whiteColor()
         
         window?.makeKeyAndVisible()
+        //注册通知
+        registerNotification()
+        
         //设置根控制器
+        window?.rootViewController = defaultViewController()
         
-                window?.rootViewController = MainViewController()
-        
-        //测试新特性
-        //        window?.rootViewController = NewFeatureViewController()
-        
-//        window?.rootViewController = defaultViewController()
         return true
     }
     
     //MARK:- 切换视图控制器的通知
     private func registerNotification(){
         //是个单例对象 程序一运行就会建立
-        //注册 切换视图控制器的通知
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "switchRootVC", name:WBSwitchRootVCNotification , object: nil)
+        //注册 切换视图控制器的通知 Object： nil 对应广播
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "switchRootVC:", name:WBSwitchRootVCNotification , object: nil)
         
         
     }
     //移除通知的操作，写于不写没有区别只是编码习惯问题
     deinit{
-    
+        
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     
-    private func switchRootVC(){
+    // @objc 的用法 只要OC中 target - action 这种消息机制 selector类型都需要@objc来兼容
+    @objc private func switchRootVC(n: NSNotification) {
         
+        print("根据通知切换控制器 ：\(n)")
+        //根据发送的通知切换对应的根视图
+        if  n.object != nil {
+            //跳转到welcome
+            window?.rootViewController = WelcomeViewController()
+            return
+        }
+        window?.rootViewController = MainViewController()
         
     }
     
     
     //MARK:- 根据判断是否登录显示具体的页面
     private func defaultViewController()-> UIViewController {
-    
-        if UserAccountViewModel().userLogin {
         
+        if UserAccountViewModel().userLogin {
             
-//            return  isNewVersion() ? NewFeatureViewController() :WelcomeViewController()
-            if isNewVersion() {
-            
-                return NewFeatureViewController()
-            }
-            return WelcomeViewController()
+            return  isNewVersion() ? NewFeatureViewController() :WelcomeViewController()
         }
+        
         //用户没有登录的
         return MainViewController()
     }
@@ -101,8 +99,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         userDefaults.setDouble(currentNum!, forKey: sandBoxKey)
         userDefaults.synchronize()
         
-        
         //比较版本
+        print("currentNum = \(currentNum!)")
+        print("lastNum = \(lastNum)")
+        
         return currentNum! > lastNum
     }
     

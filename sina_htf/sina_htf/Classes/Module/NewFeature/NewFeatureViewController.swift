@@ -163,12 +163,11 @@ class NewFeatureCell: UICollectionViewCell {
         }
     }
     
-    
+    //MARK:- 新特性按钮点击事件
     @objc private func startBtnDidClick(){
-    
-    print(__FUNCTION__)
+
+        NSNotificationCenter.defaultCenter().postNotificationName(WBSwitchRootVCNotification, object: nil)
         
-//        window?.rootViewController =  MainViewController()
     }
     
     

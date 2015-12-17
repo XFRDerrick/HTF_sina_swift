@@ -63,8 +63,7 @@ class UserAccount: NSObject ,NSCoding{
         //存储在沙盒中
         //字符串拼接路径的方法 在Xcode中被丢了  需要转换成NSString
         let path = (NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last!  as NSString).stringByAppendingString("/account.plist")
-        print("沙盒保存路径 ： \(path)")
-        
+//        print("沙盒保存路径 ： \(path)")
         //保存自定义对象
         NSKeyedArchiver.archiveRootObject(self, toFile: path)
     
@@ -76,8 +75,7 @@ class UserAccount: NSObject ,NSCoding{
         //从磁盘中解档数据
         let path  = (NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last! as NSString).stringByAppendingPathComponent("account.plist")
         
-        NSLog("获取 路径--%@",path);
-        
+//        NSLog("获取 路径--%@",path);
         if let account =  NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? UserAccount{
         
             //对token的有效期进行判断 过期返回nil
@@ -85,13 +83,11 @@ class UserAccount: NSObject ,NSCoding{
             
                 return account
             }
-//            return account
         }
         return nil
     }
     
-    
-    
+  
     
     //解归档
     required init?(coder aDecoder: NSCoder) {
