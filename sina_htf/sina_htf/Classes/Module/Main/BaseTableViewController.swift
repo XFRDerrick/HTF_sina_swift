@@ -19,6 +19,7 @@ class BaseTableViewController: UITableViewController, VisitorLoginViewDelegate {
         
         let nav = UINavigationController(rootViewController: oauth)
       
+        
         presentViewController(nav, animated: true, completion: nil)
         
     }

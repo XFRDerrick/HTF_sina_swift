@@ -127,10 +127,16 @@ extension OAuthViewController: UIWebViewDelegate {
         UserAccountViewModel().loadAccssToken(code) { (isSuccess) -> () in
             if isSuccess {
                 print("登录成功")
-                NSNotificationCenter.defaultCenter().postNotificationName(WBSwitchRootVCNotification, object: "welcome")
-                //关闭
-                self.close()
                 
+                //关闭   不会立即回收
+//                self.close()
+                
+                self.dismissViewControllerAnimated(false, completion: { () -> Void in
+                    //通知是同步的  将close放在通知之前解决图层问题
+                    NSNotificationCenter.defaultCenter().postNotificationName(WBSwitchRootVCNotification, object: "welcome")
+                })
+                
+
             }else{
             
                 print("登录失败")

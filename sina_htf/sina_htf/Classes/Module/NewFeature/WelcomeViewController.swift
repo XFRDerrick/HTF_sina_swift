@@ -108,19 +108,7 @@ class WelcomeViewController: UIViewController {
     
     private lazy var backImageView: UIImageView  = UIImageView(image: UIImage(named: "ad_background"))
     private lazy var iconView: UIImageView = UIImageView(image: UIImage(named: ""))
-    private lazy var welcomeLable: UILabel = {
     
-        let lab = UILabel()
-        
-        lab.text = (UserAccountViewModel().userAccount?.name ?? "") + "欢迎回来"
-        
-        lab.font = UIFont.systemFontOfSize(16)
-        
-        lab.textColor = UIColor.lightGrayColor()
-        
-        lab.sizeToFit()
-        return lab
-    }()
-    
+    private lazy var welcomeLable: UILabel = UILabel(title: (UserAccountViewModel().userAccount?.name ?? "") + "欢迎回来", color: UIColor.lightGrayColor(), fontSize: 16)
     
 }

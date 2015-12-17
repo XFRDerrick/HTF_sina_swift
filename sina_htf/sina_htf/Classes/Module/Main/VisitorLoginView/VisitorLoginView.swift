@@ -143,22 +143,9 @@ class VisitorLoginView: UIView {
      private lazy var backView: UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_mask_smallicon"))
     private lazy var largeIcon : UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_image_house"))
     private lazy var circleView : UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_image_smallicon"))
+    //适用自定义Lable
+    private lazy var tipLable: UILabel = UILabel(title: "关注一些人，回这里看看有什么惊喜，关注一些人，回这里看看有什么惊喜", color: UIColor.darkGrayColor(), fontSize: 14)
     
-    private lazy var tipLable: UILabel = {
-    
-        let lab = UILabel()
-        
-        lab.text = "关注一些人，回这里看看有什么惊喜，关注一些人，回这里看看有什么惊喜"
-        
-        lab.textColor = UIColor.darkGrayColor()
-        
-        lab.textAlignment = .Center
-        
-        lab.font = UIFont.systemFontOfSize(14)
-        lab.numberOfLines = 0
-        lab.sizeToFit()
-        return lab
-    }()
     
     private lazy var registerBtn: UIButton = {
     
