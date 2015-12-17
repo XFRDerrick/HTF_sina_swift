@@ -32,6 +32,10 @@ class UserAccountViewModel: NSObject {
         return url
     }
     
+    var token: String? {
+        return userAccount?.access_token
+    }
+    
     
     //MARK: - 加载用户token （请求标识） 添加回调闭包
     func loadAccssToken(code:String ,finish:(isSuccess: Bool) ->()){
