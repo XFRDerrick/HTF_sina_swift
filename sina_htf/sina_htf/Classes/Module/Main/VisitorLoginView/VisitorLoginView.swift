@@ -147,32 +147,7 @@ class VisitorLoginView: UIView {
     private lazy var tipLable: UILabel = UILabel(title: "关注一些人，回这里看看有什么惊喜，关注一些人，回这里看看有什么惊喜", color: UIColor.darkGrayColor(), fontSize: 14)
     
     
-    private lazy var registerBtn: UIButton = {
-    
-        let btn = UIButton()
-        
-        btn.setBackgroundImage(UIImage(named: "common_button_white_disable"), forState: .Normal)
-        btn.setTitle("注册", forState: .Normal)
-        btn.titleLabel?.font = UIFont.systemFontOfSize(15)
-        btn.setTitleColor(themeColor , forState: .Normal)
-        btn.sizeToFit()
-        
-        return btn
-    }()
-    
-    
-    private lazy var loginBtn: UIButton = {
-        
-        let btn = UIButton()
-        
-        btn.setBackgroundImage(UIImage(named: "common_button_white_disable"), forState: .Normal)
-        btn.setTitle("登录", forState: .Normal)
-        btn.titleLabel?.font = UIFont.systemFontOfSize(15)
-        btn.setTitleColor(themeColor , forState: .Normal)
-        btn.sizeToFit()
-        
-        return btn
-    }()
-    
+    private lazy var registerBtn: UIButton = UIButton(backImageNameN: "common_button_white_disable", backImageNameH: nil, color: themeColor, title: "注册",fontOfSize: 15)
+    private lazy var loginBtn: UIButton = UIButton(backImageNameN: "common_button_white_disable", backImageNameH: nil, color: themeColor, title: "登录",fontOfSize: 15)
 
 }

@@ -53,10 +53,7 @@ class NewFeatureViewController: UICollectionViewController {
         super.viewDidLoad()
         // Register cell classes
         self.collectionView!.registerClass(NewFeatureCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        
-        
     }
-    
     
     // MARK: UICollectionViewDataSource
     
@@ -95,16 +92,8 @@ class NewFeatureViewController: UICollectionViewController {
         }
         
     }
-    
-    
-    
+   
 }
-
-
-
-
-
-
 
 //MARK:- 创建一个新的类Cell
 
@@ -119,13 +108,9 @@ class NewFeatureCell: UICollectionViewCell {
             
             //隐藏其他界面的btn
             startBtn.hidden = true
-            
         }
-        
     }
-    
-    
-    
+ 
     //重写构造方法 cell 构造的入口
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -196,21 +181,7 @@ class NewFeatureCell: UICollectionViewCell {
     private lazy var iconView : UIImageView = UIImageView(image: UIImage(named: "new_feature_1"))
     
     //开始按钮
-    private lazy var startBtn: UIButton = {
-        
-        let btn = UIButton()
-        
-        btn.setBackgroundImage(UIImage(named: "new_feature_finish_button_highlighted"), forState:.Highlighted )
-        btn.setBackgroundImage(UIImage(named: "new_feature_finish_button"), forState: .Normal)
-        
-        btn.setTitle("开始体验", forState: .Normal)
-        btn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        
-        //设置大小
-        btn.sizeToFit()
-        return btn
-        
-    }()
+    private lazy var startBtn: UIButton = UIButton(backImageNameN: "new_feature_finish_button", backImageNameH: "new_feature_finish_button_highlighted", color: UIColor.whiteColor(), title: "开始体验", fontOfSize: 15)
     
     
 }

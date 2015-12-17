@@ -12,17 +12,22 @@ import UIKit
 extension UIButton {
     
     //convenience  表示便利构造函数
-    convenience init (imageNameN:String, imageNameH:String,color:UIColor ,title:String){
+    convenience init (backImageNameN:String, backImageNameH:String?,color:UIColor ,title:String,fontOfSize:CGFloat){
         
         self.init()
         //意味着可以获得一个实例化的对象
         //Lable的属性设置
-        setBackgroundImage(UIImage(named: imageNameH), forState:.Highlighted )
-        setBackgroundImage(UIImage(named: imageNameN), forState: .Normal)
+        
+        //当没有此项时进行判断 可为空
+        if let _ = backImageNameH {
+            setBackgroundImage(UIImage(named: backImageNameH!), forState:.Highlighted )
+        }
+        
+        setBackgroundImage(UIImage(named: backImageNameN), forState: .Normal)
         
         setTitle(title, forState: .Normal)
         setTitleColor(color, forState: .Normal)
-        
+        titleLabel?.font = UIFont.systemFontOfSize(fontOfSize)
         //设置大小
         sizeToFit()
     }
