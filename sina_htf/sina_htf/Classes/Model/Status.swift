@@ -54,6 +54,31 @@ class Status: NSObject {
     //用户模型
     var user: User?
     
+    //配图数据
+    var pic_urls: [[String: String]]?{
+        
+        didSet{
+            guard let array = pic_urls else {
+                return
+            }
+            //遍历数组
+            //将数组实例化
+            imageURLs = [NSURL]()
+            for item in array{
+                //一定能够显示
+                let urlString = item["thumbnail_pic"]!
+                let url = NSURL(string: urlString)
+                //添加URL
+                imageURLs!.append(url!)
+            }
+        
+        }
+    
+    }
+    //将获取的数组数据， 转换成URL对象
+    var imageURLs: [NSURL]?
+    
+    
     //构造方法 kvc设置
     init(dict: [String : AnyObject]) {
     
@@ -67,8 +92,8 @@ class Status: NSObject {
         //字典转模型
             if let dict = value as? [String : AnyObject]{
                  user = User(dict: dict)
-                print("-----------------------user-----------------------")
-                print(user)
+//                print("-----------------------user-----------------------")
+//                print(user)
             }
             //需要加return 否则白做了
             return

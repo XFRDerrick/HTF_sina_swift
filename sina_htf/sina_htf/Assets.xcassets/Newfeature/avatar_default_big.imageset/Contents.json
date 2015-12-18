@@ -10,13 +10,13 @@
         "center" : {
           "mode" : "tile",
           "width" : 1,
-          "height" : 1
+          "height" : 122
         },
         "cap-insets" : {
-          "bottom" : 85,
-          "top" : 84,
-          "right" : 85,
-          "left" : 84
+          "bottom" : 12,
+          "top" : 36,
+          "right" : 77,
+          "left" : 90
         }
       },
       "idiom" : "universal",

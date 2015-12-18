@@ -122,6 +122,7 @@ extension HomeTableViewController{
         
         cell.status = statuses[indexPath.row]
         
+        print(statuses[indexPath.row].imageURLs?.count)
         //此处使用的TextLable是懒加载的
         //cell.textLabel?.text = statuses[indexPath.row].text
         

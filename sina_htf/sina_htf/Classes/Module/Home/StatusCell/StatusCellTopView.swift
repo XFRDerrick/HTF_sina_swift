@@ -80,10 +80,27 @@ class StatusCellTopView: UIView {
             
         }
         
+        //添加collectionView配图视图
+        addSubview(pictureView)
+        //设置约束
+        pictureView.snp_makeConstraints { (make) -> Void in
+            
+            
+            make.top.equalTo(contentLable.snp_bottom).offset(StatusCellMarigin)
+            make.left.equalTo(contentLable.snp_left)
+            make.size.equalTo(CGSize(width: 100, height: 100))
+            
+        }
+        
         //对顶部视图的底部设置约束
         self.snp_makeConstraints { (make) -> Void in
-            make.bottom.equalTo(contentLable.snp_bottom).offset(StatusCellMarigin)
+            make.bottom.equalTo(pictureView.snp_bottom).offset(StatusCellMarigin)
         }
+        
+        
+     
+        
+        
         
     }
     //MARK:- 懒加载所有的子视图
@@ -93,7 +110,10 @@ class StatusCellTopView: UIView {
     private lazy var verified_type_image = UIImageView(image: UIImage(named: "avatar_vip"))
     private lazy var timeLable: UILabel = UILabel(title: "20分钟前", color: themeColor, fontSize: 10)
     private lazy var sourceLable: UILabel = UILabel(title: "一点资讯", color: themeColor, fontSize: 10)
-    private lazy var contentLable: UILabel = UILabel(title: "炸鸡啤酒炸鸡啤酒炸鸡啤酒炸鸡啤酒炸鸡啤酒炸鸡啤酒炸鸡啤酒炸鸡啤酒炸鸡啤酒炸鸡啤酒炸鸡啤酒炸鸡啤酒", color: UIColor.darkGrayColor(), fontSize: 14,margin: StatusCellMarigin)
+    private lazy var contentLable: UILabel = UILabel(title: "炸鸡啤酒炸鸡啤酒炸鸡啤酒炸鸡啤酒", color: UIColor.darkGrayColor(), fontSize: 14,margin: StatusCellMarigin)
+    
+    //添加配图视图
+    private lazy var pictureView: StatusPictureView = StatusPictureView()
     
     
     
