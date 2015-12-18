@@ -29,3 +29,9 @@ let WBSwitchRootVCNotification = "WBSwitchRootVCNotification"
 let StatusCellMarigin: CGFloat = 12
 let StatusCellHeadIMageWidth: CGFloat = 35
 
+//屏幕的尺寸信息
+
+let screenW : CGFloat = UIScreen.mainScreen().bounds.width
+let screenH : CGFloat = UIScreen.mainScreen().bounds.height
+
+

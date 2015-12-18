@@ -22,6 +22,10 @@ class StatusCellTopView: UIView {
             timeLable.text = status?.created_at
             sourceLable.text = status?.source
             contentLable.text = status?.text
+            
+            //设置配图视图的 图片数组的数据源
+            pictureView.imageURLs = status?.imageURLs
+            
         }
     }
     
@@ -88,7 +92,7 @@ class StatusCellTopView: UIView {
             
             make.top.equalTo(contentLable.snp_bottom).offset(StatusCellMarigin)
             make.left.equalTo(contentLable.snp_left)
-            make.size.equalTo(CGSize(width: 100, height: 100))
+//            make.size.equalTo(CGSize(width: 100, height: 100))
             
         }
         
