@@ -48,7 +48,7 @@ class StatusCell: UITableViewCell {
         bottomView.snp_makeConstraints { (make) -> Void in
             make.top.equalTo(topView.snp_bottom)
              make.left.right.equalTo(topView)
-            make.height.equalTo(100)
+            make.height.equalTo(50)
         }
         //MARK:- 自定义行高未完善
         contentView.snp_makeConstraints { (make) -> Void in
