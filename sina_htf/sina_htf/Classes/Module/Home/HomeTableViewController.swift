@@ -23,38 +23,6 @@ class HomeTableViewController: BaseTableViewController {
         loadData()
         
     }
-       /*
-    private func loadData() {
-        //实现网络请求
-        let AFN = AFHTTPSessionManager()
-        //get请求
-        let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
-        //判断token是否为空
-        guard let token = UserAccountViewModel().token else {
-            print("token为空")
-            SVProgressHUD.showInfoWithStatus("请重新登陆")
-            return
-        }
-        let parameters = ["access_token" : token]
-        AFN.GET(urlString, parameters: parameters, progress: { (p) -> Void in
-            print(p)
-            }, success: { (task, result) -> Void in
-                //需要判断result 能否转化为字典
-                if let dict = result as? [String : AnyObject] {
-                    //算数据获取成功
-                    //通过的键值的方式 获取 statuses对应的数组
-                    if let array = dict["statuses"] as? [[String : AnyObject]] {
-                        print("--------------------" ,array)
-                        //TODO: 遍历数组中 所有的字典 做字典转模型的操作
-                        
-                    }
-                }
-            }) { (task, error) -> Void in
-                print(error)
-        }
-    }
-*/
-    
 
     //加载数据请求
     private func loadData(){
@@ -78,12 +46,15 @@ class HomeTableViewController: BaseTableViewController {
             
             }, success: { (task, result) -> Void in
     
-                if let dict = result as? [String : AnyObject] {
-                
+                guard let dict = result as? [String : AnyObject] else{
+                    print("数据不合法")
+                    SVProgressHUD.showInfoWithStatus("网络出错请稍后再试")
+                    return
+                }
+                //数据解析
                     if let array = dict["statuses"] as? [[String : AnyObject]]{
                         print("array  == \(array)")
                     }
-                }
                 
             }) { (task, error) -> Void in
                 print(error)
