@@ -13,6 +13,7 @@
 		7C9104A31C212313003EF1D0 /* NewFeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9104A21C212313003EF1D0 /* NewFeatureViewController.swift */; };
 		7C9104A51C212341003EF1D0 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9104A41C212341003EF1D0 /* WelcomeViewController.swift */; };
 		7CCC1E0F1C23CD020003866C /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCC1E0E1C23CD020003866C /* StatusCell.swift */; };
+		7CCC1E111C23E9D90003866C /* StatusCellBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCC1E101C23E9D90003866C /* StatusCellBottomView.swift */; };
 		7CDBE9591C2399BD00A8F9FC /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDBE9581C2399BD00A8F9FC /* Status.swift */; };
 		7CDBE95E1C23A49800A8F9FC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDBE95D1C23A49800A8F9FC /* User.swift */; };
 		7CDBE9601C23B57F00A8F9FC /* StatusCellTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDBE95F1C23B57F00A8F9FC /* StatusCellTopView.swift */; };
@@ -60,6 +61,7 @@
 		7C9104A21C212313003EF1D0 /* NewFeatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFeatureViewController.swift; sourceTree = "<group>"; };
 		7C9104A41C212341003EF1D0 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		7CCC1E0E1C23CD020003866C /* StatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
+		7CCC1E101C23E9D90003866C /* StatusCellBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCellBottomView.swift; sourceTree = "<group>"; };
 		7CDBE9581C2399BD00A8F9FC /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		7CDBE95D1C23A49800A8F9FC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7CDBE95F1C23B57F00A8F9FC /* StatusCellTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCellTopView.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			children = (
 				7CCC1E0E1C23CD020003866C /* StatusCell.swift */,
 				7CDBE95F1C23B57F00A8F9FC /* StatusCellTopView.swift */,
+				7CCC1E101C23E9D90003866C /* StatusCellBottomView.swift */,
 			);
 			path = StatusCell;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				7CE025301C1C805100A16B7C /* BaseTableViewController.swift in Sources */,
 				7CDBE9591C2399BD00A8F9FC /* Status.swift in Sources */,
 				7CE0252C1C1C6B3700A16B7C /* MainTabBar.swift in Sources */,
+				7CCC1E111C23E9D90003866C /* StatusCellBottomView.swift in Sources */,
 				7CE2112D1C1BC0FD004212F1 /* AppDelegate.swift in Sources */,
 				7CDBE95E1C23A49800A8F9FC /* User.swift in Sources */,
 				7C9104A51C212341003EF1D0 /* WelcomeViewController.swift in Sources */,

@@ -12,7 +12,7 @@ import UIKit
 extension UIButton {
     
     //convenience  表示便利构造函数
-    convenience init (backImageNameN:String, backImageNameH:String?,color:UIColor ,title:String,fontOfSize:CGFloat){
+    convenience init (backImageNameN:String?, backImageNameH:String?,color:UIColor ,title:String,fontOfSize:CGFloat, imageName:String? = nil){
         
         self.init()
         //意味着可以获得一个实例化的对象
@@ -22,8 +22,12 @@ extension UIButton {
         if let _ = backImageNameH {
             setBackgroundImage(UIImage(named: backImageNameH!), forState:.Highlighted )
         }
-        
-        setBackgroundImage(UIImage(named: backImageNameN), forState: .Normal)
+        if let _ = backImageNameN {
+             setBackgroundImage(UIImage(named: backImageNameN!), forState: .Normal)
+        }
+        if let _ = imageName {
+            setImage(UIImage(named: imageName!), forState: .Normal)
+        }
         
         setTitle(title, forState: .Normal)
         setTitleColor(color, forState: .Normal)
@@ -32,6 +36,7 @@ extension UIButton {
         sizeToFit()
     }
     
+//      private lazy var retweetedBtn: UIButton = UIButton(title: "转发", backImage: nil, color: UIColor.darkGrayColor(), fontSize: 10, isNeedHighlighted: false, imageName: "timeline_icon_retweet")
     //convenience  表示便利构造函数
     convenience init ( imageNameN:String, imageNameH:String , backImageNameN:String, backImageNameH:String?){
         

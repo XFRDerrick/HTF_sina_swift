@@ -35,6 +35,9 @@ class StatusCell: UITableViewCell {
     
         //添加子视图
         contentView.addSubview(topView)
+        
+        contentView.addSubview(bottomView)
+        
         //手动布局设置约束
         topView.snp_makeConstraints { (make) -> Void in
             make.top.left.right.equalTo(contentView)
@@ -42,10 +45,15 @@ class StatusCell: UITableViewCell {
             //make.height.equalTo(100)
             
         }
-    //MARK:- 自定义行高未完善
+        bottomView.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(topView.snp_bottom)
+             make.left.right.equalTo(topView)
+            make.height.equalTo(100)
+        }
+        //MARK:- 自定义行高未完善
         contentView.snp_makeConstraints { (make) -> Void in
             make.top.left.right.equalTo(self)
-            make.bottom.equalTo(topView.snp_bottom)
+            make.bottom.equalTo(bottomView.snp_bottom)
         }
         
     
@@ -55,7 +63,7 @@ class StatusCell: UITableViewCell {
     
     //MARK：- 懒加载子视图
     private lazy var topView :StatusCellTopView = StatusCellTopView()
-    
+    private lazy var bottomView :StatusCellBottomView = StatusCellBottomView()
     
     override func awakeFromNib() {
         super.awakeFromNib()

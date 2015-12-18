@@ -39,10 +39,13 @@ class HomeTableViewController: BaseTableViewController {
     private func prepareTableView(){
         
         tableView.registerClass(StatusCell.self, forCellReuseIdentifier: HomeCellId)
-    
         //修改tableView的固定高度
-        tableView.rowHeight = 200
-    
+//        tableView.rowHeight = 400
+        
+        tableView.estimatedRowHeight = 300
+        //设置行高自动计算
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.separatorStyle = .None
         
     }
     
