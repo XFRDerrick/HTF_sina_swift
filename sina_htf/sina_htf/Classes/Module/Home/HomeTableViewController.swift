@@ -12,6 +12,8 @@ import AFNetworking
 
 import SVProgressHUD
 
+//import StatusCell
+
 
 private let HomeCellId = "HomeCellId"
 
@@ -35,8 +37,12 @@ class HomeTableViewController: BaseTableViewController {
     }
 
     private func prepareTableView(){
+        
+        tableView.registerClass(StatusCell.self, forCellReuseIdentifier: HomeCellId)
     
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: HomeCellId)
+        //修改tableView的固定高度
+        tableView.rowHeight = 200
+    
     }
     
     
@@ -105,12 +111,13 @@ extension HomeTableViewController{
         return statuses.count
     }
     
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        //IOS 6.0 推出的方法
-        let cell = tableView.dequeueReusableCellWithIdentifier(HomeCellId , forIndexPath: indexPath)
         
-        cell.textLabel?.text = statuses[indexPath.row].text
+        //IOS 6.0 推出的方法
+        let cell = tableView.dequeueReusableCellWithIdentifier(HomeCellId , forIndexPath: indexPath)  as! StatusCell
+        
+        //此处使用的TextLable是懒加载的
+        //cell.textLabel?.text = statuses[indexPath.row].text
         
         return cell
     }

@@ -13,7 +13,7 @@ import UIKit
 extension UILabel {
     
     //convenience  表示便利构造函数
-    convenience init (title:String, color:UIColor ,fontSize:CGFloat){
+    convenience init (title:String, color:UIColor ,fontSize:CGFloat, margin :CGFloat = 0){
     
         self.init()
         //意味着可以获得一个实例化的对象
@@ -23,6 +23,14 @@ extension UILabel {
         textAlignment = .Center
         font = UIFont.systemFontOfSize(fontSize)
         numberOfLines = 0
+        if margin > 0  {
+        
+            preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 2 * margin
+            //有margin的时候显示
+            textAlignment = .Left
+            
+        }
+        
         sizeToFit()
     }
 

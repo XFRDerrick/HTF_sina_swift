@@ -8,40 +8,45 @@
 
 import UIKit
 
-import SnapKit
-
-let StatusCellMargin: CGFloat = 12
-
-let StatusCellImageWidth: CGFloat = 35
-
-
 class StatusCell: UITableViewCell {
-    
-    //Cell的底部约束
-    
-    //添加模型
-    var status: Status? {
-    
-        didSet{
-            
+
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+      //自定义Cell
+        setupUI()
         
-        
-        }
-    
-    
     }
 
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
+    private func setupUI(){
     
+        //添加子视图
+        contentView.addSubview(topView)
+        //手动布局设置约束
+        topView.snp_makeConstraints { (make) -> Void in
+//            make.top.equalTo(contentView.snp_top)
+//            make.left.equalTo(contentView.snp_left)
+            
+            make.top.left.right.equalTo(contentView)
+            make.height.equalTo(100)
+            
+        }
+        
     
+    }
     
+
     
-//    private lazy var originalView : Status
+    //MARK：- 懒加载子视图
+    private lazy var topView :StatusCellTopView = StatusCellTopView()
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+  
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

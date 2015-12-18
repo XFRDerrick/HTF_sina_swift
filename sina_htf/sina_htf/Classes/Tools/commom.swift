@@ -24,3 +24,8 @@ let client_secret = "8beceb565a02f8656ba1e9eeccdb274b"
 
 //window的根式图控制器的切换通知
 let WBSwitchRootVCNotification = "WBSwitchRootVCNotification"
+
+//微博首页的Cell布局信息
+let StatusCellMarigin: CGFloat = 12
+let StatusCellHeadIMageWidth: CGFloat = 35
+
