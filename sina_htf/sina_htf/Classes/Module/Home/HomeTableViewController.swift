@@ -95,7 +95,7 @@ class HomeTableViewController: BaseTableViewController {
                     }
                 
             }) { (task, error) -> Void in
-                print(error)
+                print("hpme -\(error)")
         }
         
     }

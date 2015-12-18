@@ -65,7 +65,7 @@ class UserAccountViewModel: NSObject {
                 
                 
             }) { (__, error) -> Void in
-                print(error)
+                 print("UserAccountViewModel加载token -\(error)")
                 finish(isSuccess: false)
         }
         
@@ -84,7 +84,7 @@ class UserAccountViewModel: NSObject {
             AFN.GET(urlString, parameters: parameters, progress: { (_) -> Void in
                 
                 }, success: { (_, result) -> Void in
-                    print(result)
+                    print("获取用户信息 \(result)")
                     if let dict = result {
                         //用户信息
                         let avatar_large = dict["avatar_large"] as! String
@@ -101,7 +101,7 @@ class UserAccountViewModel: NSObject {
                         
                     }
                 }) { (_, error) -> Void in
-                    print(error)
+                    print("获取用户信息error -\(error)")
                     
                     finish(isSuccess: false)
             }

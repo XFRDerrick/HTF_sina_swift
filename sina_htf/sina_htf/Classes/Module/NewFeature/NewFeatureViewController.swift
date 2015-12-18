@@ -114,7 +114,7 @@ class NewFeatureCell: UICollectionViewCell {
     //重写构造方法 cell 构造的入口
     override init(frame: CGRect) {
         super.init(frame: frame)
-        print(frame)
+//        print("新特性界面frame\(frame)")
         
         setupUI()
         

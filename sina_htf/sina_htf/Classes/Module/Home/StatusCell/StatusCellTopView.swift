@@ -8,19 +8,23 @@
 
 import UIKit
 
+import SDWebImage
+
 class StatusCellTopView: UIView {
     
     //模型属性赋值
     var status: Status? {
-    
+        
         didSet{
             
             iconImage.sd_setImageWithURL(status?.user?.headURL)
             nameLable.text = status?.user?.name
             mbrankImage.image = status?.user?.mbrankImage
             verified_type_image.image = status?.user?.verified_type_image
+            //TODO: 后续完善
             timeLable.text = status?.created_at
             sourceLable.text = status?.source
+            
             contentLable.text = status?.text
             
             //设置配图视图的 图片数组的数据源
@@ -89,20 +93,19 @@ class StatusCellTopView: UIView {
         //设置约束
         pictureView.snp_makeConstraints { (make) -> Void in
             
-            
             make.top.equalTo(contentLable.snp_bottom).offset(StatusCellMarigin)
             make.left.equalTo(contentLable.snp_left)
+            //TODO: 为picture设置Size
 //            make.size.equalTo(CGSize(width: 100, height: 100))
             
         }
+        
+        
         
         //对顶部视图的底部设置约束
         self.snp_makeConstraints { (make) -> Void in
             make.bottom.equalTo(pictureView.snp_bottom).offset(StatusCellMarigin)
         }
-        
-        
-     
         
         
         

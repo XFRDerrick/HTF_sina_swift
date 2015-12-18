@@ -87,7 +87,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let currentVersionStr = info!["CFBundleShortVersionString"] as! String
         //转换成格式
         let currentNum = Double(currentVersionStr)
-        print(currentNum)
         
         //本地缓存的版本
         //使用userDefaults 来存储版本

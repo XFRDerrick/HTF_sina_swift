@@ -24,7 +24,7 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        print(view)
+//        print("欢迎界面 view \(view)")
         showAnimation()
     }
     
@@ -107,7 +107,7 @@ class WelcomeViewController: UIViewController {
 //MARK:- 懒加载所有的子视图
     
     private lazy var backImageView: UIImageView  = UIImageView(image: UIImage(named: "ad_background"))
-    private lazy var iconView: UIImageView = UIImageView(image: UIImage(named: ""))
+    private lazy var iconView: UIImageView = UIImageView()
     
     private lazy var welcomeLable: UILabel = UILabel(title: (UserAccountViewModel().userAccount?.name ?? "") + "欢迎回来", color: UIColor.lightGrayColor(), fontSize: 16)
     
