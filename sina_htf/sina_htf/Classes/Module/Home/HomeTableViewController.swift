@@ -12,18 +12,35 @@ import AFNetworking
 
 import SVProgressHUD
 
+
+private let HomeCellId = "HomeCellId"
+
 class HomeTableViewController: BaseTableViewController {
+    
+    //创建初始化对象
+    private lazy var statuses = [Status]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        visitorLoginView?.setupInfo("登录后，别人评论你的微博，发给你的消息，都会在这里收到通知", imageName: nil)
-        
+        if !userLogin {
+            //没有登录的情况
+              visitorLoginView?.setupInfo("登录后，别人评论你的微博，发给你的消息，都会在这里收到通知", imageName: nil)
+            return
+        }
+        //社会自tableVIew
+        prepareTableView()
         loadData()
         
     }
 
+    private func prepareTableView(){
+    
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: HomeCellId)
+    }
+    
+    
+    
     //加载数据请求
     private func loadData(){
         
@@ -39,10 +56,9 @@ class HomeTableViewController: BaseTableViewController {
         }
         
         let parameters = ["access_token" : token]
-        
-        print(token)
+
         AFN.GET(urlString, parameters: parameters, progress: { (p) -> Void in
-            print("home -> AFN -\(p)")
+//            print("home -> AFN -\(p)")
             
             }, success: { (task, result) -> Void in
     
@@ -53,7 +69,19 @@ class HomeTableViewController: BaseTableViewController {
                 }
                 //数据解析
                     if let array = dict["statuses"] as? [[String : AnyObject]]{
-                        print("array  == \(array)")
+//                        print("array  ============================\n \(array)")
+                        
+                        var list = [Status]()
+                        for item in array {
+                            //遍历获取模型 存入模型
+                            let s = Status(dict: item)
+                            list.append(s)
+                    
+                        }
+                        self.statuses = list
+                        
+                        //刷新表格
+                        self.tableView.reloadData()
                     }
                 
             }) { (task, error) -> Void in
@@ -61,79 +89,31 @@ class HomeTableViewController: BaseTableViewController {
         }
         
     }
+    
+}
 
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    // MARK: - Table view data source
+// MARK: - Table view data source
+extension HomeTableViewController{
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        
+        return 1
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        return statuses.count
     }
     
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-    
-    // Configure the cell...
-    
-    return cell
+        //IOS 6.0 推出的方法
+        let cell = tableView.dequeueReusableCellWithIdentifier(HomeCellId , forIndexPath: indexPath)
+        
+        cell.textLabel?.text = statuses[indexPath.row].text
+        
+        return cell
     }
-    */
     
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return false if you do not want the specified item to be editable.
-    return true
-    }
-    */
-    
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    if editingStyle == .Delete {
-    // Delete the row from the data source
-    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-    } else if editingStyle == .Insert {
-    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }
-    }
-    */
-    
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-    
-    }
-    */
-    
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return false if you do not want the item to be re-orderable.
-    return true
-    }
-    */
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
-    
+
 }
