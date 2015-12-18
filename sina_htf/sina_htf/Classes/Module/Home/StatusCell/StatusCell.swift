@@ -10,6 +10,16 @@ import UIKit
 
 class StatusCell: UITableViewCell {
 
+    
+    //模型属性赋值
+    var status: Status? {
+        
+        didSet{
+            topView.status = status
+            
+        }
+    }
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
       //自定义Cell
@@ -27,12 +37,15 @@ class StatusCell: UITableViewCell {
         contentView.addSubview(topView)
         //手动布局设置约束
         topView.snp_makeConstraints { (make) -> Void in
-//            make.top.equalTo(contentView.snp_top)
-//            make.left.equalTo(contentView.snp_left)
-            
             make.top.left.right.equalTo(contentView)
-            make.height.equalTo(100)
+            //方便测试时设置
+            //make.height.equalTo(100)
             
+        }
+    //MARK:- 自定义行高未完善
+        contentView.snp_makeConstraints { (make) -> Void in
+            make.top.left.right.equalTo(self)
+            make.bottom.equalTo(topView.snp_bottom)
         }
         
     

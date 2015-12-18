@@ -43,6 +43,7 @@ class HomeTableViewController: BaseTableViewController {
         //修改tableView的固定高度
         tableView.rowHeight = 200
     
+        
     }
     
     
@@ -115,6 +116,8 @@ extension HomeTableViewController{
         
         //IOS 6.0 推出的方法
         let cell = tableView.dequeueReusableCellWithIdentifier(HomeCellId , forIndexPath: indexPath)  as! StatusCell
+        
+        cell.status = statuses[indexPath.row]
         
         //此处使用的TextLable是懒加载的
         //cell.textLabel?.text = statuses[indexPath.row].text

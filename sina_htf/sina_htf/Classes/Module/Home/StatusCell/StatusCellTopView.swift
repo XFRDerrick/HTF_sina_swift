@@ -9,21 +9,37 @@
 import UIKit
 
 class StatusCellTopView: UIView {
-
-    override init(frame:CGRect) {
     
+    //模型属性赋值
+    var status: Status? {
+    
+        didSet{
+            
+            iconImage.sd_setImageWithURL(status?.user?.headURL)
+            nameLable.text = status?.user?.name
+            mbrankImage.image = status?.user?.mbrankImage
+            verified_type_image.image = status?.user?.verified_type_image
+            timeLable.text = status?.created_at
+            sourceLable.text = status?.source
+            contentLable.text = status?.text
+        }
+    }
+    
+    
+    override init(frame:CGRect) {
+        
         super.init(frame: frame)
         backgroundColor = UIColor(white: 0.9, alpha: 1)
         
         setupUI()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    //自定义顶部视图
+    //MARK:- 自定义顶部视图
     private func setupUI(){
-    
+        
         //头像 title VIP  time  where
         addSubview(iconImage)
         addSubview(nameLable)
@@ -62,12 +78,15 @@ class StatusCellTopView: UIView {
             make.top.equalTo(iconImage.snp_bottom).offset(StatusCellMarigin)
             make.left.equalTo(self.snp_left).offset(StatusCellMarigin)
             
-            
         }
         
+        //对顶部视图的底部设置约束
+        self.snp_makeConstraints { (make) -> Void in
+            make.bottom.equalTo(contentLable.snp_bottom).offset(StatusCellMarigin)
+        }
         
     }
-//MARK:- 懒加载所有的子视图
+    //MARK:- 懒加载所有的子视图
     private lazy var iconImage: UIImageView = UIImageView(image: UIImage(named: "avatar_default_big"))
     private lazy var nameLable: UILabel = UILabel(title: "你是sb", color: themeColor, fontSize: 14)
     private lazy var mbrankImage: UIImageView = UIImageView(image: UIImage(named: "common_icon_membership"))

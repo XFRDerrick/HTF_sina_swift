@@ -13,6 +13,8 @@ import UIKit
 extension UILabel {
     
     //convenience  表示便利构造函数
+    
+    //margin设置初始值的时候可以在调用的时候不使用
     convenience init (title:String, color:UIColor ,fontSize:CGFloat, margin :CGFloat = 0){
     
         self.init()
