@@ -7,13 +7,8 @@
 //
 
 import UIKit
-
 import AFNetworking
-
 import SVProgressHUD
-
-//import StatusCell
-
 
 private let HomeCellId = "HomeCellId"
 
@@ -30,18 +25,20 @@ class HomeTableViewController: BaseTableViewController {
               visitorLoginView?.setupInfo("登录后，别人评论你的微博，发给你的消息，都会在这里收到通知", imageName: nil)
             return
         }
-        //社会自tableVIew
+        //设置tableVIew 只有登录之后才有tabView 才能对其进行设置更新
         prepareTableView()
         loadData()
         
     }
 
+    //MARK:- 有关tabView的准备设置行高的设置
     private func prepareTableView(){
         
         tableView.registerClass(StatusCell.self, forCellReuseIdentifier: HomeCellId)
         //修改tableView的固定高度
 //        tableView.rowHeight = 400
-        
+       
+        //设置预估行高
         tableView.estimatedRowHeight = 300
         //设置行高自动计算
         tableView.rowHeight = UITableViewAutomaticDimension

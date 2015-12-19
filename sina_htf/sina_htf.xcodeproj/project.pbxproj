@@ -33,6 +33,7 @@
 		7CE211E91C1BE52C004212F1 /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE211E81C1BE52C004212F1 /* MessageTableViewController.swift */; };
 		7CE211EB1C1BE53E004212F1 /* DiscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE211EA1C1BE53E004212F1 /* DiscoverTableViewController.swift */; };
 		7CE211ED1C1BE54C004212F1 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE211EC1C1BE54C004212F1 /* ProfileTableViewController.swift */; };
+		7CF141221C24EACA008B6329 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF141211C24EACA008B6329 /* UIColor+Extension.swift */; };
 		FC0E4D2917E1B47D98D0A718 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AAD74764925C9FA2294C88C /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +89,7 @@
 		7CE211E81C1BE52C004212F1 /* MessageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
 		7CE211EA1C1BE53E004212F1 /* DiscoverTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewController.swift; sourceTree = "<group>"; };
 		7CE211EC1C1BE54C004212F1 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		7CF141211C24EACA008B6329 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		E3E69F135BC47DE22ABBF23A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +132,7 @@
 			children = (
 				7C45263C1C22894A0001CF3C /* UILable+Extension.swift */,
 				7C45263E1C228B810001CF3C /* UIButton+Extension.swift */,
+				7CF141211C24EACA008B6329 /* UIColor+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -524,6 +527,7 @@
 				7C9104A31C212313003EF1D0 /* NewFeatureViewController.swift in Sources */,
 				7CCC1E0F1C23CD020003866C /* StatusCell.swift in Sources */,
 				7C45263D1C22894A0001CF3C /* UILable+Extension.swift in Sources */,
+				7CF141221C24EACA008B6329 /* UIColor+Extension.swift in Sources */,
 				7CDBE9601C23B57F00A8F9FC /* StatusCellTopView.swift in Sources */,
 				7CE211E91C1BE52C004212F1 /* MessageTableViewController.swift in Sources */,
 				7CE211EB1C1BE53E004212F1 /* DiscoverTableViewController.swift in Sources */,

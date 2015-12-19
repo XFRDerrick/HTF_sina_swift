@@ -8,7 +8,7 @@
 
 
 import UIKit
-
+private let pictureCellID: String =  "pictureCellID"
 private let pictureCellMargin: CGFloat =  5
 class StatusPictureView: UICollectionView {
     //定义外部数据属性
@@ -24,6 +24,8 @@ class StatusPictureView: UICollectionView {
 
             //修改测试的文案
             testLable.text = "\(imageURLs?.count ?? 0)"
+            //刷新列表
+            reloadData()
         }
     }
     
@@ -32,8 +34,15 @@ class StatusPictureView: UICollectionView {
         //实例化一个流水布局
         let flowLayout = UICollectionViewFlowLayout()
         super.init(frame: frame, collectionViewLayout: flowLayout)
-        
         backgroundColor = UIColor.whiteColor()
+        
+        
+        
+        //注册Cell
+        self.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: pictureCellID)
+        
+        //设置数据源
+        self.dataSource = self
         
         setupUI()
         
@@ -104,7 +113,30 @@ class StatusPictureView: UICollectionView {
     // MARK:懒加载所有的子视图
     private lazy var testLable: UILabel = UILabel(title: "", color: UIColor.redColor(), fontSize: 30)
 
+}
+
+extension StatusPictureView: UICollectionViewDataSource {
+
+
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return imageURLs?.count ?? 0
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView .dequeueReusableCellWithReuseIdentifier(pictureCellID, forIndexPath: indexPath)
+        
+//        cell.backgroundColor = indexPath.item % 2 == 0 ? UIColor.redColor() : UIColor.blueColor()
+        
+        cell.backgroundColor = UIColor.randomColor()
+        
+        return cell
+        
+    }
+    
+    
 
 }
+
 
 
