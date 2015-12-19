@@ -66,7 +66,9 @@ class Status: NSObject {
             imageURLs = [NSURL]()
             for item in array{
                 //一定能够显示
-                let urlString = item["thumbnail_pic"]!
+                var urlString = item["thumbnail_pic"]!
+                
+                urlString = urlString.stringByReplacingOccurrencesOfString("thumbnail_pic", withString: "large")
                 let url = NSURL(string: urlString)
                 //添加URL
                 imageURLs!.append(url!)

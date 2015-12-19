@@ -6,7 +6,7 @@
 //  Copyright © 2015年 hetefe. All rights reserved.
 //
 
-
+//import Snap
 import UIKit
 private let pictureCellID: String =  "pictureCellID"
 private let pictureCellMargin: CGFloat =  5
@@ -33,13 +33,18 @@ class StatusPictureView: UICollectionView {
         
         //实例化一个流水布局
         let flowLayout = UICollectionViewFlowLayout()
+        //设置间距
+        flowLayout.minimumLineSpacing = pictureCellMargin
+        flowLayout.minimumInteritemSpacing = pictureCellMargin
+        
+        
         super.init(frame: frame, collectionViewLayout: flowLayout)
         backgroundColor = UIColor.whiteColor()
         
         
         
         //注册Cell
-        self.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: pictureCellID)
+        registerClass(PictureCell.self, forCellWithReuseIdentifier: pictureCellID)
         
         //设置数据源
         self.dataSource = self
@@ -68,8 +73,13 @@ class StatusPictureView: UICollectionView {
         let maxWidth = screenW - 2 * StatusCellMarigin
         let itemWidth = (maxWidth - 2 * pictureCellMargin) / 3
         
+        //流水视图取出
+        let layout = self.collectionViewLayout as! UICollectionViewFlowLayout
+        //设置itemSize
+        layout.itemSize = CGSizeMake(itemWidth, itemWidth)
         //没有图片
         if iamgeCount == 0{
+            
             return CGSizeZero
         }
         //单张图片
@@ -78,6 +88,7 @@ class StatusPictureView: UICollectionView {
             //先固定尺寸
             let imageSize = CGSize(width: 180, height: 120)
             
+            layout.itemSize = imageSize
             return imageSize
 
         }
@@ -102,7 +113,7 @@ class StatusPictureView: UICollectionView {
     
     private func setupUI() {
         
-            self.addSubview(testLable)
+            addSubview(testLable)
             
             testLable.snp_makeConstraints { (make) -> Void in
                 make.center.equalTo(self.snp_center)
@@ -124,16 +135,62 @@ extension StatusPictureView: UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView .dequeueReusableCellWithReuseIdentifier(pictureCellID, forIndexPath: indexPath)
-        
-//        cell.backgroundColor = indexPath.item % 2 == 0 ? UIColor.redColor() : UIColor.blueColor()
+        let cell = collectionView .dequeueReusableCellWithReuseIdentifier(pictureCellID, forIndexPath: indexPath) as! PictureCell
         
         cell.backgroundColor = UIColor.randomColor()
+        
+        cell.imageURL = imageURLs![indexPath.item]
         
         return cell
         
     }
+
+}
+
+//使用时去注册
+class PictureCell: UICollectionViewCell {
+
+    //外部属性
+    var imageURL: NSURL? {
     
+        didSet{
+           iconImageView.sd_setImageWithURL(imageURL)
+        }
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupUI()
+  
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    
+    private func setupUI(){
+    
+        contentView.addSubview(iconImageView)
+        
+        iconImageView.snp_makeConstraints { (make) -> Void in
+            make.edges.equalTo(contentView.snp_edges)
+        }
+        
+    
+    }
+    private lazy var iconImageView: UIImageView = {
+        let iv = UIImageView()
+       //显示图片的原比例 但是图片会被裁减
+        //scaleTOFill 会被压缩或者拉伸
+        iv.clipsToBounds = true
+        iv.contentMode = UIViewContentMode.ScaleToFill
+        //使用 sb / xib 默认设置剪裁
+//        iv.clipsToBounds = true
+//        iv.contentMode = .ScaleAspectFill
+        return iv
+    }()
+
     
 
 }
