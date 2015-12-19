@@ -27,6 +27,7 @@ let WBSwitchRootVCNotification = "WBSwitchRootVCNotification"
 
 //微博首页的Cell布局信息
 let StatusCellMarigin: CGFloat = 12
+
 let StatusCellHeadIMageWidth: CGFloat = 35
 
 //屏幕的尺寸信息

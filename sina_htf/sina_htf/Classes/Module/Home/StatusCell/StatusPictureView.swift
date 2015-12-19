@@ -10,6 +10,7 @@
 import UIKit
 private let pictureCellID: String =  "pictureCellID"
 private let pictureCellMargin: CGFloat =  5
+
 class StatusPictureView: UICollectionView {
     //定义外部数据属性
     var imageURLs: [NSURL]? {
@@ -34,14 +35,11 @@ class StatusPictureView: UICollectionView {
         //实例化一个流水布局
         let flowLayout = UICollectionViewFlowLayout()
         //设置间距
-        flowLayout.minimumLineSpacing = pictureCellMargin
         flowLayout.minimumInteritemSpacing = pictureCellMargin
-        
+        flowLayout.minimumLineSpacing = pictureCellMargin
         
         super.init(frame: frame, collectionViewLayout: flowLayout)
         backgroundColor = UIColor.whiteColor()
-        
-        
         
         //注册Cell
         registerClass(PictureCell.self, forCellWithReuseIdentifier: pictureCellID)
@@ -71,11 +69,13 @@ class StatusPictureView: UICollectionView {
         
         //获取配图的最大宽度
         let maxWidth = screenW - 2 * StatusCellMarigin
-        let itemWidth = (maxWidth - 2 * pictureCellMargin) / 3
+        //MARK:- 据推测为线宽影响 减一解决布局问题
+        let itemWidth = (maxWidth - 2 * pictureCellMargin - 1) / 3
         
         //流水视图取出
         let layout = self.collectionViewLayout as! UICollectionViewFlowLayout
         //设置itemSize
+        
         layout.itemSize = CGSizeMake(itemWidth, itemWidth)
         //没有图片
         if iamgeCount == 0{
@@ -87,8 +87,8 @@ class StatusPictureView: UICollectionView {
             //TODO: 单图会按照图片等比例显示
             //先固定尺寸
             let imageSize = CGSize(width: 180, height: 120)
-            
             layout.itemSize = imageSize
+            
             return imageSize
 
         }
@@ -137,7 +137,7 @@ extension StatusPictureView: UICollectionViewDataSource {
         
         let cell = collectionView .dequeueReusableCellWithReuseIdentifier(pictureCellID, forIndexPath: indexPath) as! PictureCell
         
-        cell.backgroundColor = UIColor.randomColor()
+//        cell.backgroundColor = UIColor.randomColor()
         
         cell.imageURL = imageURLs![indexPath.item]
         
@@ -147,7 +147,7 @@ extension StatusPictureView: UICollectionViewDataSource {
 
 }
 
-//使用时去注册
+//MARK:- 自定义Cell使用时去注册
 class PictureCell: UICollectionViewCell {
 
     //外部属性
@@ -183,11 +183,9 @@ class PictureCell: UICollectionViewCell {
         let iv = UIImageView()
        //显示图片的原比例 但是图片会被裁减
         //scaleTOFill 会被压缩或者拉伸
-        iv.clipsToBounds = true
-        iv.contentMode = UIViewContentMode.ScaleToFill
+        iv.clipsToBounds = false
+        iv.contentMode = UIViewContentMode.ScaleAspectFit
         //使用 sb / xib 默认设置剪裁
-//        iv.clipsToBounds = true
-//        iv.contentMode = .ScaleAspectFill
         return iv
     }()
 
