@@ -94,13 +94,8 @@ class StatusPictureView: UICollectionView {
         }
         //单张图片
         if iamgeCount == 4 {
-            //TODO: 单图会按照图片等比例显示
-            //先固定尺寸
-            
             let w = itemWidth * 2 + pictureCellMargin
-            
             return CGSize(width: w, height: w)
-            
         }
         //程序走到这里表示其他的情况
         
@@ -183,8 +178,8 @@ class PictureCell: UICollectionViewCell {
         let iv = UIImageView()
        //显示图片的原比例 但是图片会被裁减
         //scaleTOFill 会被压缩或者拉伸
-        iv.clipsToBounds = false
-        iv.contentMode = UIViewContentMode.ScaleAspectFit
+        iv.clipsToBounds = true
+        iv.contentMode = UIViewContentMode.ScaleAspectFill
         //使用 sb / xib 默认设置剪裁
         return iv
     }()
