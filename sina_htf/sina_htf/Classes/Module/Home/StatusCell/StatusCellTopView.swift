@@ -10,9 +10,13 @@ import UIKit
 
 import SDWebImage
 
+import SnapKit
+
 class StatusCellTopView: UIView {
+   
     
-//    var bottomConstraints: constraints
+    //定义视图 的底部约束的属性
+    var bottomConstraints: Constraint?
     
     //模型属性赋值
     var status: Status? {
@@ -33,23 +37,18 @@ class StatusCellTopView: UIView {
             pictureView.imageURLs = status?.imageURLs
             //需要根据是否有配图 动态调整约束关系
             //更新之前需将原来的取消掉
-            
-//            self.snp_removeConstraints()
-//            if let urls = status?.imageURLs where urls.count > 0{
-//                
-//                self.snp_updateConstraints(closure: { (make) -> Void in
-//                    
-////                    let constonation
-//                    
-//                    make.bottom.equalTo(pictureView.snp_bottom).offset(StatusCellMarigin)
-//                })
-//            }else{
-//                //对顶部视图的底部设置约束
-//                self.snp_updateConstraints(closure: { (make) -> Void in
-//                    make.bottom.equalTo(contentLable.snp_bottom).offset(StatusCellMarigin)
-//                })
-//            }
-            
+            self.bottomConstraints?.uninstall()
+            if let urls = status?.imageURLs where urls.count > 0{
+                //有配图的时候
+                self.snp_updateConstraints(closure: { (make) -> Void in
+                    self.bottomConstraints = make.bottom.equalTo(pictureView.snp_bottom).offset(StatusCellMarigin).constraint
+                })
+            }else{
+                //对顶部视图的底部设置约束 没有配图的情况
+                self.snp_updateConstraints(closure: { (make) -> Void in
+                      self.bottomConstraints = make.bottom.equalTo(contentLable.snp_bottom).offset(StatusCellMarigin).constraint
+                })
+            }
         }
     }
     
@@ -57,7 +56,7 @@ class StatusCellTopView: UIView {
     override init(frame:CGRect) {
         
         super.init(frame: frame)
-        backgroundColor = UIColor(white: 0.9, alpha: 1)
+//        backgroundColor = UIColor(white: 0.9, alpha: 1)
         
         setupUI()
     }
@@ -120,11 +119,9 @@ class StatusCellTopView: UIView {
             
         }
         
-        
-        
-//        对顶部视图的底部设置约束
+//        对顶部视图的底部设置约束 并且设置标记属性
         self.snp_makeConstraints { (make) -> Void in
-            make.bottom.equalTo(pictureView.snp_bottom).offset(StatusCellMarigin)
+            self.bottomConstraints = make.bottom.equalTo(pictureView.snp_bottom).offset(StatusCellMarigin).constraint
         }
         
         
@@ -141,8 +138,5 @@ class StatusCellTopView: UIView {
     
     //添加配图视图
     private lazy var pictureView: StatusPictureView = StatusPictureView()
-    
-    
-    
-    
+      
 }

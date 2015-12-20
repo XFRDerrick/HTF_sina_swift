@@ -79,7 +79,6 @@ class StatusPictureView: UICollectionView {
         layout.itemSize = CGSizeMake(itemWidth, itemWidth)
         //没有图片
         if iamgeCount == 0{
-            
             return CGSizeZero
         }
         //单张图片
@@ -171,7 +170,6 @@ class PictureCell: UICollectionViewCell {
         iconImageView.snp_makeConstraints { (make) -> Void in
             make.edges.equalTo(contentView.snp_edges)
         }
-        
     
     }
     private lazy var iconImageView: UIImageView = {

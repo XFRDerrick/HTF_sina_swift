@@ -80,6 +80,10 @@ class Status: NSObject {
     //将获取的数组数据， 转换成URL对象
     var imageURLs: [NSURL]?
     
+    //转发微博模型
+    var retweeted_status: Status?
+    
+    
     
     //构造方法 kvc设置
     init(dict: [String : AnyObject]) {
@@ -94,12 +98,25 @@ class Status: NSObject {
         //字典转模型
             if let dict = value as? [String : AnyObject]{
                  user = User(dict: dict)
-//                print("-----------------------user-----------------------")
-//                print(user)
             }
             //需要加return 否则白做了
             return
         }
+        
+        if key == "retweeted_status" {
+        
+            print("转发微博")
+            if let dict = value as? [String: AnyObject] {
+                
+                retweeted_status = Status(dict: dict)
+                
+                return
+            }
+            
+            
+            
+        }
+        
         super.setValue(value, forKey: key)
     }
     
