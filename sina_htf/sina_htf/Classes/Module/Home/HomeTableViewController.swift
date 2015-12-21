@@ -47,48 +47,21 @@ class HomeTableViewController: BaseTableViewController {
         
         
     }
-    
-    
-    
-    //加载数据请求
+  //加载数据请求
     private func loadData(){
         
-        //get请求
-        let urlString = "2/statuses/home_timeline.json"// "https://api.weibo.com/2/statuses/home_timeline.json"
-        
-        guard let token = UserAccountViewModel().token else{
-            
-            print("token为nil")
-            SVProgressHUD.showInfoWithStatus("请重新登录")
-            return
-        }
-        
-        let parameters = ["access_token" : token]
-
-        NetworkTools.sharedTools.requestJSONDict(.GET, urlString: urlString, parameters: parameters) { (dict, error) -> () in
-            if error != nil {
-            
-                SVProgressHUD.showInfoWithStatus("网络出错请稍后再试")
+        //使用ViewModel
+        StatusListViewModel.loadHomePageData { (statues) -> () in
+            guard let list = statues else {
+                
                 return
             }
-            //请求成功
-            if let array = dict!["statuses"] as? [[String : AnyObject]]{
-                
-                var list = [Status]()
-                for item in array {
-                    //遍历获取模型 存入模型
-                    let s = Status(dict: item)
-                    list.append(s)
-                    
-                }
-                self.statuses = list
-                
-                //刷新表格
-                self.tableView.reloadData()
-            }
-
+            self.statuses = list
             
+            //执行刷新
+            self.tableView.reloadData()
         }
+    
     }
     
 }

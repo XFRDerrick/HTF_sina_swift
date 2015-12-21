@@ -13,6 +13,7 @@
 		7C9104A31C212313003EF1D0 /* NewFeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9104A21C212313003EF1D0 /* NewFeatureViewController.swift */; };
 		7C9104A51C212341003EF1D0 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9104A41C212341003EF1D0 /* WelcomeViewController.swift */; };
 		7C919FBE1C28343F007E9BAF /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C919FBD1C28343F007E9BAF /* NetworkTools.swift */; };
+		7C919FC01C284CDB007E9BAF /* StatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C919FBF1C284CDB007E9BAF /* StatusListViewModel.swift */; };
 		7CCC1E0F1C23CD020003866C /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCC1E0E1C23CD020003866C /* StatusCell.swift */; };
 		7CCC1E111C23E9D90003866C /* StatusCellBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCC1E101C23E9D90003866C /* StatusCellBottomView.swift */; };
 		7CCC1E151C2400300003866C /* StatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCC1E141C2400300003866C /* StatusPictureView.swift */; };
@@ -65,6 +66,7 @@
 		7C9104A21C212313003EF1D0 /* NewFeatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFeatureViewController.swift; sourceTree = "<group>"; };
 		7C9104A41C212341003EF1D0 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		7C919FBD1C28343F007E9BAF /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
+		7C919FBF1C284CDB007E9BAF /* StatusListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusListViewModel.swift; sourceTree = "<group>"; };
 		7CCC1E0E1C23CD020003866C /* StatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
 		7CCC1E101C23E9D90003866C /* StatusCellBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCellBottomView.swift; sourceTree = "<group>"; };
 		7CCC1E141C2400300003866C /* StatusPictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusPictureView.swift; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				7CDBF8911C1EA3EB00579199 /* UserAccountViewModel.swift */,
+				7C919FBF1C284CDB007E9BAF /* StatusListViewModel.swift */,
 			);
 			path = ViewModle;
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 				7CE025331C1C875400A16B7C /* VisitorLoginView.swift in Sources */,
 				7CDBF8901C1DDD3200579199 /* UserAccount.swift in Sources */,
 				7C9104A11C2122CD003EF1D0 /* OAuthViewController.swift in Sources */,
+				7C919FC01C284CDB007E9BAF /* StatusListViewModel.swift in Sources */,
 				7CE211E51C1BE4DB004212F1 /* MainViewController.swift in Sources */,
 				7C919FBE1C28343F007E9BAF /* NetworkTools.swift in Sources */,
 				7CE025351C1C8AF600A16B7C /* commom.swift in Sources */,
