@@ -42,6 +42,7 @@ class HomeTableViewController: BaseTableViewController {
         tableView.estimatedRowHeight = 300
         //设置行高自动计算
         tableView.rowHeight = UITableViewAutomaticDimension
+        //设置分割线
         tableView.separatorStyle = .None
         
         

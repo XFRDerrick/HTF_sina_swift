@@ -67,6 +67,7 @@ class StatusCellTopView: UIView {
     //MARK:- 自定义顶部视图
     private func setupUI(){
         
+        addSubview(sepView)
         //头像 title VIP  time  where
         addSubview(iconImage)
         addSubview(nameLable)
@@ -76,9 +77,15 @@ class StatusCellTopView: UIView {
         addSubview(sourceLable)
         addSubview(contentLable)
         //添加对应的约束
+        sepView.backgroundColor = UIColor(white: 0.9, alpha: 1)
+        sepView.snp_makeConstraints { (make) -> Void in
+            make.left.right.top.equalTo(self)
+            make.height.equalTo(10)
+        }
+        
         iconImage.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(self.snp_left).offset(StatusCellMarigin)
-            make.top.equalTo(self.snp_top).offset(StatusCellMarigin)
+            make.top.equalTo(sepView.snp_top).offset(StatusCellMarigin)
             make.size.equalTo(CGSize(width: StatusCellHeadIMageWidth, height: StatusCellHeadIMageWidth))
         }
         nameLable.snp_makeConstraints { (make) -> Void in
@@ -128,6 +135,8 @@ class StatusCellTopView: UIView {
         
     }
     //MARK:- 懒加载所有的子视图
+    private lazy var sepView: UIView = UIView()
+    
     private lazy var iconImage: UIImageView = UIImageView(image: UIImage(named: "avatar_default_big"))
     private lazy var nameLable: UILabel = UILabel(title: "你是sb", color: themeColor, fontSize: 14)
     private lazy var mbrankImage: UIImageView = UIImageView(image: UIImage(named: "common_icon_membership"))
