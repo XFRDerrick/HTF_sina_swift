@@ -40,33 +40,23 @@ class UserAccountViewModel: NSObject {
     //MARK: - 加载用户token （请求标识） 添加回调闭包
     func loadAccssToken(code:String ,finish:(isSuccess: Bool) ->()){
         
-        let urlString = "https://api.weibo.com/oauth2/access_token"
+        let urlString = "oauth2/access_token"//"https://api.weibo.com/oauth2/access_token"
         let parameters = ["client_id":client_id, "client_secret":client_secret, "grant_type": "authorization_code", "code":code, "redirect_uri":redirect_uri]
-        
-        let AFN = AFHTTPSessionManager()
-        AFN.responseSerializer.acceptableContentTypes?.insert("text/plain")
-        AFN.POST(urlString, parameters: parameters, progress: { (p) -> Void in
-            print(p)
-            }, success: { (_, result) -> Void in
-                print(result)
-                //成功获取token
-                //获取用户信息成功
-                if let dict = result as? [String : AnyObject] {
-                    //字典转模型
-                    let userAccount = UserAccount(dict: dict )
-                    
-                    self.loadUserInfo(userAccount, finish: finish)
-                    
-                    print("----------------------------------------------------")
-//                    print(userAccount)
-                }
-                
-                
-                
-                
-            }) { (__, error) -> Void in
-                 print("UserAccountViewModel加载token -\(error)")
+       
+        NetworkTools.sharedTools.requestJSONDict(urlString, parameters: parameters) { (dict, error) -> () in
+            print(dict)
+            if error != nil {
+                //请求失败
+                //执行失败的回调
                 finish(isSuccess: false)
+                return
+                
+            }
+            //字典转模型
+            let userAccount = UserAccount(dict: dict!)
+            
+            self.loadUserInfo(userAccount, finish: finish)
+            print("----------------------------------------------------")
         }
         
     }
