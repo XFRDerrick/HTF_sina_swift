@@ -53,9 +53,8 @@ class HomeTableViewController: BaseTableViewController {
     //加载数据请求
     private func loadData(){
         
-        let AFN = AFHTTPSessionManager()
         //get请求
-        let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
+        let urlString = "2/statuses/home_timeline.json"// "https://api.weibo.com/2/statuses/home_timeline.json"
         
         guard let token = UserAccountViewModel().token else{
             
@@ -66,37 +65,30 @@ class HomeTableViewController: BaseTableViewController {
         
         let parameters = ["access_token" : token]
 
-        AFN.GET(urlString, parameters: parameters, progress: { (p) -> Void in
-//            print("home -> AFN -\(p)")
+        NetworkTools.sharedTools.requestJSONDict(.GET, urlString: urlString, parameters: parameters) { (dict, error) -> () in
+            if error != nil {
             
-            }, success: { (task, result) -> Void in
-    
-                guard let dict = result as? [String : AnyObject] else{
-                    print("数据不合法")
-                    SVProgressHUD.showInfoWithStatus("网络出错请稍后再试")
-                    return
-                }
-                //数据解析
-                    if let array = dict["statuses"] as? [[String : AnyObject]]{
-//                        print("array  ============================\n \(array)")
-                        
-                        var list = [Status]()
-                        for item in array {
-                            //遍历获取模型 存入模型
-                            let s = Status(dict: item)
-                            list.append(s)
-                    
-                        }
-                        self.statuses = list
-                        
-                        //刷新表格
-                        self.tableView.reloadData()
-                    }
+                SVProgressHUD.showInfoWithStatus("网络出错请稍后再试")
+                return
+            }
+            //请求成功
+            if let array = dict!["statuses"] as? [[String : AnyObject]]{
                 
-            }) { (task, error) -> Void in
-                print("hpme -\(error)")
+                var list = [Status]()
+                for item in array {
+                    //遍历获取模型 存入模型
+                    let s = Status(dict: item)
+                    list.append(s)
+                    
+                }
+                self.statuses = list
+                
+                //刷新表格
+                self.tableView.reloadData()
+            }
+
+            
         }
-        
     }
     
 }
