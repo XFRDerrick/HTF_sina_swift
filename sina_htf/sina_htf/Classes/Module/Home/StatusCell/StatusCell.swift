@@ -22,9 +22,6 @@ class StatusCell: UITableViewCell {
         didSet{
             
             topView.status = status
-//            if let retweetedStatus = status?.retweeted_status {
-            //                retweetedView.retweetedStatus = retweetedStatus
-            //            }
             
             //卸载掉约束
             bottomViewTopConstraints?.uninstall()

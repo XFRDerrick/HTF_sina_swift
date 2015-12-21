@@ -105,7 +105,7 @@ class Status: NSObject {
         
         if key == "retweeted_status" {
         
-            print("转发微博")
+//            print("转发微博")
             if let dict = value as? [String: AnyObject] {
                 
                 retweeted_status = Status(dict: dict)
