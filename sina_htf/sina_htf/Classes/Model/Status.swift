@@ -43,7 +43,7 @@ class Status: NSObject {
     var created_at: String?
     
     //int64	微博ID 在iPhone 5c一下的设备上 会导致整形数据被截掉
-    var id: Int = 0
+    var id: Int64 = 0
     
     //text	string	微博信息内容
     var text: String?
@@ -68,14 +68,13 @@ class Status: NSObject {
                 //一定能够显示
                 var urlString = item["thumbnail_pic"]!
                 
-                urlString = urlString.stringByReplacingOccurrencesOfString("thumbnail", withString: "large")
+                urlString = urlString.stringByReplacingOccurrencesOfString("thumbnail", withString: "square")
                 let url = NSURL(string: urlString)
                 //添加URL
                 imageURLs!.append(url!)
             }
         
         }
-    
     }
     //将获取的数组数据， 转换成URL对象
     var imageURLs: [NSURL]?
@@ -102,18 +101,16 @@ class Status: NSObject {
             //需要加return 否则白做了
             return
         }
-        
+        //转发微博
         if key == "retweeted_status" {
         
-//            print("转发微博")
             if let dict = value as? [String: AnyObject] {
                 
                 retweeted_status = Status(dict: dict)
                 
                 return
             }
-            
-            
+   
             
         }
         
