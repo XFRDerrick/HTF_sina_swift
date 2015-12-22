@@ -49,7 +49,10 @@ class HomeTableViewController: BaseTableViewController {
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: "loadData", forControlEvents: .ValueChanged)
         
-//        tableView.tableFooterView = indicatorView
+        //设置TabView的footerView- 小菊花
+        tableView.tableFooterView = indicatorView
+        
+        
         
     }
     private lazy var indicatorView: UIActivityIndicatorView = {
@@ -60,10 +63,20 @@ class HomeTableViewController: BaseTableViewController {
     
   //加载数据请求 不加@objc会崩溃
    @objc private func loadData(){
+    
+    var max_id :Int64 = 0
+    var since_id : Int64 = 0
+    //根据需要 小菊花是否转动判断是否上拉加载更多数据
+    if indicatorView.isAnimating(){
         
-        let since_id = statuses.first?.id ?? 0
+        //上拉加载更多
+        max_id = statuses.last?.id ?? 0
+    }else{
+    
+        since_id = statuses.first?.id ?? 0
+    }
         //使用ViewModel
-        StatusListViewModel.loadHomePageData(since_id) { (statues) -> () in
+        StatusListViewModel.loadHomePageData(since_id ,max_id: max_id) { (statues) -> () in
             self.refreshControl?.endRefreshing()
             guard let list = statues else {
                 
@@ -75,6 +88,11 @@ class HomeTableViewController: BaseTableViewController {
                 //拼接数组
                 self.statuses = list + self.statuses
                 
+            }else if max_id > 0{
+                
+                self.statuses += list
+                //数据加载完毕之后应 结束动画 不然只能加载一页数据
+                self.indicatorView.stopAnimating()
             }else{
                 self.statuses = list
             }
@@ -107,12 +125,12 @@ extension HomeTableViewController{
         //此处使用的TextLable是懒加载的
         //cell.textLabel?.text = statuses[indexPath.row].text
         
-//        if !indicatorView.isAnimating() && indexPath.row == statuses.count - 1  {
-//        //加载之前转动小花
-//            indicatorView.startAnimating()
-//            loadData()
-//        } 
-//        
+        if !indicatorView.isAnimating() && indexPath.row == statuses.count - 1  {
+        //加载之前转动小花
+            indicatorView.startAnimating()
+            loadData()
+        } 
+//
         return cell
     }
     

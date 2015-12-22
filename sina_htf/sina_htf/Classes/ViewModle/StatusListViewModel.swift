@@ -14,7 +14,7 @@ import SVProgressHUD
 class StatusListViewModel: NSObject {
 
     
-    class func loadHomePageData(since_id: Int64 ,finished: (statues: [Status]?) -> () ) {
+    class func loadHomePageData(since_id: Int64 ,max_id: Int64,finished: (statues: [Status]?) -> () ) {
       
         //get请求
         let urlString = "2/statuses/home_timeline.json"// "https://api.weibo.com/2/statuses/home_timeline.json"
@@ -30,6 +30,10 @@ class StatusListViewModel: NSObject {
         
         if since_id > 0 {
             parameters["since_id"] = "\(since_id)"
+        }
+        if max_id > 0 {
+        
+            parameters["max_id"] = "\(max_id - 1)"
         }
         
         
