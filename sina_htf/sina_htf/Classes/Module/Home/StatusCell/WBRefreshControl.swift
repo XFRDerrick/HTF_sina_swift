@@ -25,6 +25,9 @@ private let RefreshViewHeight: CGFloat = 60
 
 class WBRefreshControl: UIControl {
     
+    //定义属性保存上一次刷新的状态
+    var oldStatue: WBRefreshStatue = .Normal
+    
     //定义外部模型属性
     var statue: WBRefreshStatue = .Normal {
     
@@ -32,14 +35,42 @@ class WBRefreshControl: UIControl {
             switch statue {
             
             case .Pulling:
-                print("准备起飞")
-            case .Refreshing:
-                print("正在起飞")
-                sendActionsForControlEvents(.ValueChanged)
+                tipLable.text = "准备起飞"
+                UIView.animateWithDuration(1, animations: { () -> Void in
+                    self.arrowIcon.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+                })
                 
+            case .Refreshing:
+                tipLable.text = "正在起飞"
+                //隐藏箭头显示转动小菊花
+                arrowIcon.hidden = true
+                loadIcon.startAnimating()
+                
+                //修改contentView 调整动画效果停留
+                var inset = scrollView!.contentInset
+                inset.top += RefreshViewHeight
+                scrollView?.contentInset = inset
+               
+                sendActionsForControlEvents(.ValueChanged)
             case .Normal:
-                print("下拉起飞")
+                tipLable.text = "下拉起飞"
+                arrowIcon.hidden = false
+                loadIcon.stopAnimating()
+                
+                //修改contentView 调整动画效果停留
+                if oldStatue == .Refreshing {
+                    var inset = scrollView!.contentInset
+                    inset.top -= RefreshViewHeight
+                    scrollView?.contentInset = inset
+                }
+                
+                UIView.animateWithDuration(1, animations: { () -> Void in
+                    self.arrowIcon.transform = CGAffineTransformIdentity
+                })
+                
             }
+            //所有的实质结束后保存刷新状态
+            oldStatue = statue
         }
     }
     
