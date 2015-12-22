@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7C45263D1C22894A0001CF3C /* UILable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C45263C1C22894A0001CF3C /* UILable+Extension.swift */; };
 		7C45263F1C228B810001CF3C /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C45263E1C228B810001CF3C /* UIButton+Extension.swift */; };
+		7C6275761C297D550094B043 /* WBRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6275751C297D550094B043 /* WBRefreshControl.swift */; };
 		7C9104A11C2122CD003EF1D0 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9104A01C2122CD003EF1D0 /* OAuthViewController.swift */; };
 		7C9104A31C212313003EF1D0 /* NewFeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9104A21C212313003EF1D0 /* NewFeatureViewController.swift */; };
 		7C9104A51C212341003EF1D0 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9104A41C212341003EF1D0 /* WelcomeViewController.swift */; };
@@ -62,6 +63,7 @@
 		2AAD74764925C9FA2294C88C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C45263C1C22894A0001CF3C /* UILable+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILable+Extension.swift"; sourceTree = "<group>"; };
 		7C45263E1C228B810001CF3C /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		7C6275751C297D550094B043 /* WBRefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBRefreshControl.swift; sourceTree = "<group>"; };
 		7C9104A01C2122CD003EF1D0 /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OAuthViewController.swift; path = OAuth/OAuthViewController.swift; sourceTree = "<group>"; };
 		7C9104A21C212313003EF1D0 /* NewFeatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFeatureViewController.swift; sourceTree = "<group>"; };
 		7C9104A41C212341003EF1D0 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				7CF141231C2559A1008B6329 /* StatusRetweetedView.swift */,
 				7CCC1E101C23E9D90003866C /* StatusCellBottomView.swift */,
 				7CCC1E141C2400300003866C /* StatusPictureView.swift */,
+				7C6275751C297D550094B043 /* WBRefreshControl.swift */,
 			);
 			path = StatusCell;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 			files = (
 				7CDBF8921C1EA3EB00579199 /* UserAccountViewModel.swift in Sources */,
 				7CE211ED1C1BE54C004212F1 /* ProfileTableViewController.swift in Sources */,
+				7C6275761C297D550094B043 /* WBRefreshControl.swift in Sources */,
 				7CE211E71C1BE4F5004212F1 /* HomeTableViewController.swift in Sources */,
 				7C45263F1C228B810001CF3C /* UIButton+Extension.swift in Sources */,
 				7CE025301C1C805100A16B7C /* BaseTableViewController.swift in Sources */,

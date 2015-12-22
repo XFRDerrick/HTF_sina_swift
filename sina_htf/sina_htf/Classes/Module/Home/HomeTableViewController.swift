@@ -17,6 +17,10 @@ class HomeTableViewController: BaseTableViewController {
     //创建初始化对象
     private lazy var statuses = [Status]()
     
+    //自定义下拉刷新控件
+    private lazy var refreshView: WBRefreshControl = WBRefreshControl()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,9 +49,13 @@ class HomeTableViewController: BaseTableViewController {
         //设置分割线
         tableView.separatorStyle = .None
         
-        //设置系统的下拉刷新
-        refreshControl = UIRefreshControl()
-        refreshControl?.addTarget(self, action: "loadData", forControlEvents: .ValueChanged)
+        //设置系统的下拉刷新 --系统的
+//        refreshControl = UIRefreshControl()
+//        refreshControl?.addTarget(self, action: "loadData", forControlEvents: .ValueChanged)
+        //添加自定义的下拉刷新
+        tableView.addSubview(refreshView)
+        refreshView.addTarget(self, action: "loadData", forControlEvents: .ValueChanged)
+        
         
         //设置TabView的footerView- 小菊花
         tableView.tableFooterView = indicatorView
@@ -77,16 +85,19 @@ class HomeTableViewController: BaseTableViewController {
     }
         //使用ViewModel
         StatusListViewModel.loadHomePageData(since_id ,max_id: max_id) { (statues) -> () in
-            self.refreshControl?.endRefreshing()
+            
+            self.refreshView.endRefreshing()
             guard let list = statues else {
                 
                 return
             }
             
             if since_id > 0 {
-                //下拉刷新
-                //拼接数组
+                //下拉刷新 拼接数组
                 self.statuses = list + self.statuses
+//                if self.tableView.dragging {
+//                    return
+//                }
                 
             }else if max_id > 0{
                 
