@@ -14,7 +14,7 @@ import SVProgressHUD
 class StatusListViewModel: NSObject {
 
     
-    class func loadHomePageData(finished: (statues: [Status]?) -> () ) {
+    class func loadHomePageData(since_id: Int ,finished: (statues: [Status]?) -> () ) {
       
         //get请求
         let urlString = "2/statuses/home_timeline.json"// "https://api.weibo.com/2/statuses/home_timeline.json"
@@ -26,7 +26,12 @@ class StatusListViewModel: NSObject {
             return
         }
         
-        let parameters = ["access_token" : token]
+        var parameters = ["access_token" : token]
+        
+        if since_id > 0 {
+            parameters["since_id"] = "\(since_id)"
+        }
+        
         
         NetworkTools.sharedTools.requestJSONDict(.GET, urlString: urlString, parameters: parameters) { (dict, error) -> () in
             if error != nil {

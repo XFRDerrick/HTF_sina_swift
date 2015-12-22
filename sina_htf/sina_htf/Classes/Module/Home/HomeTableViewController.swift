@@ -45,25 +45,48 @@ class HomeTableViewController: BaseTableViewController {
         //设置分割线
         tableView.separatorStyle = .None
         
+        //设置系统的下拉刷新
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: "loadData", forControlEvents: .ValueChanged)
         
     }
   //加载数据请求
     private func loadData(){
         
+        let since_id = statuses.first?.id ?? 0
+        
         //使用ViewModel
-        StatusListViewModel.loadHomePageData { (statues) -> () in
+        StatusListViewModel.loadHomePageData(since_id) { (statues) -> () in
+            self.refreshControl?.endRefreshing()
             guard let list = statues else {
                 
                 return
             }
-            self.statuses = list
             
+            if since_id > 0 {
+                //下拉刷新
+                //拼接数组
+                self.statuses = list + self.statuses
+
+            }else{
+             self.statuses = list
+            }
+
             //执行刷新
             self.tableView.reloadData()
         }
-    
+        
+//        StatusListViewModel.loadHomePageData(since_id){ (statues) -> () in
+//            guard let list = statues else {
+//                
+//                return
+//            }
+//            self.statuses = list
+//            
+//            //执行刷新
+//            self.tableView.reloadData()
+//        }
     }
-    
 }
 
 // MARK: - Table view data source
