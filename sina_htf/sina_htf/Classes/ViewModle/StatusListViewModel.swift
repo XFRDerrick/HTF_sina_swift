@@ -33,7 +33,7 @@ class StatusListViewModel: NSObject {
         }
         if max_id > 0 {
         
-            parameters["max_id"] = "\(max_id)"
+            parameters["max_id"] = "\(max_id - 1)"
         }
         
         

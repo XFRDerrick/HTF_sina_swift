@@ -62,13 +62,12 @@ class HomeTableViewController: BaseTableViewController {
     }()
     
     //加载数据请求 不加@objc会崩溃
-    @objc private func loadData(){
+     private func loadData(){
         
         
         var since_id : Int64 = 0
         var max_id : Int64 = 0
         if indicatorView.isAnimating() {
-            
             //上拉加载更多数据
             max_id = statuses.last?.id ?? 0
         }else {
