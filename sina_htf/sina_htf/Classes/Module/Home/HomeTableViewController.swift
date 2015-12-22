@@ -49,32 +49,49 @@ class HomeTableViewController: BaseTableViewController {
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: "loadData", forControlEvents: .ValueChanged)
         
-//        tableView.tableFooterView = indicatorView
+        //设置上拉刷新
+        tableView.tableFooterView = indicatorView
         
     }
+    //上啦刷新微博的View
     private lazy var indicatorView: UIActivityIndicatorView = {
+    
         let indicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
-        //        indicator.startAnimating()
+        indicator.startAnimating()
         return indicator
     }()
     
-  //加载数据请求 不加@objc会崩溃
-   @objc private func loadData(){
+    //加载数据请求 不加@objc会崩溃
+    @objc private func loadData(){
         
-        let since_id = statuses.first?.id ?? 0
+        
+        var since_id : Int64 = 0
+        var max_id : Int64 = 0
+        if indicatorView.isAnimating() {
+            
+            //上拉加载更多数据
+            max_id = statuses.last?.id ?? 0
+        }else {
+            since_id = statuses.first?.id ?? 0
+        }
+        //需要根据小菊花是否转动判断是否加载更多
         //使用ViewModel
-        StatusListViewModel.loadHomePageData(since_id) { (statues) -> () in
+        StatusListViewModel.loadHomePageData(since_id, max_id: max_id) { (statues) -> () in
             self.refreshControl?.endRefreshing()
             guard let list = statues else {
-                
                 return
             }
-            
+              
             if since_id > 0 {
                 //下拉刷新
                 //拼接数组
                 self.statuses = list + self.statuses
                 
+            }else if max_id > 0{
+                self.statuses += list
+                //数据架子啊完毕之后 应该结束动画 不然只能够加载一页数据
+                self.indicatorView.stopAnimating()
+            
             }else{
                 self.statuses = list
             }
@@ -106,13 +123,14 @@ extension HomeTableViewController{
         cell.status = statuses[indexPath.row]
         //此处使用的TextLable是懒加载的
         //cell.textLabel?.text = statuses[indexPath.row].text
+      
+        if !indicatorView.isAnimating() && indexPath.row == statuses.count - 1  {
+        //  滑到最后一行加载数据 ,再加载数据之前转动小花
+            
+            indicatorView.startAnimating()
+            loadData()
+        }
         
-//        if !indicatorView.isAnimating() && indexPath.row == statuses.count - 1  {
-//        //加载之前转动小花
-//            indicatorView.startAnimating()
-//            loadData()
-//        } 
-//        
         return cell
     }
     

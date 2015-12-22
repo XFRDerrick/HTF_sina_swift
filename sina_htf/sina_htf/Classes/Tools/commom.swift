@@ -18,7 +18,9 @@ let themeColor = UIColor.orangeColor()
 // - 登录信息
 let client_id = "904005998"
 let redirect_uri = "http://www.baidu.com"
-let client_secret = "8beceb565a02f8656ba1e9eeccdb274b"
+let client_secret = "e8b637ab19f83f8d6119369db2b4dd48"
+//e8b637ab19f83f8d6119369db2b4dd48
+//let client_secret = "8beceb565a02f8656ba1e9eeccdb274b"
 
 //定义一个通知 的key
 
