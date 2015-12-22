@@ -63,7 +63,7 @@ class UserAccountViewModel: NSObject {
     //MARK: - 获取用户信息
     private func loadUserInfo(account: UserAccount ,finish:(isSuccess: Bool) ->()){
         
-        let urlString = "https://api.weibo.com/2/users/show.json"
+        let urlString = "2/users/show.json"//"https://api.weibo.com/2/users/show.json"
         
         //制定 中不能存放nil
         if let token = account.access_token,userId = account.uid{

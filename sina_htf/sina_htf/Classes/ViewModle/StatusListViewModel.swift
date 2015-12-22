@@ -17,7 +17,7 @@ class StatusListViewModel: NSObject {
     class func loadHomePageData(since_id: Int64 ,max_id: Int64 , finished: (statues: [Status]?) -> () ) {
       
         //get请求
-        let urlString = "2/statuses/home_timeline.json"// "https://api.weibo.com/2/statuses/home_timeline.json"
+        let urlString = "2/statuses/home_timeline.json"// "https://api.weibo.com/2/statuses/home_timeline.json"//
         
         guard let token = UserAccountViewModel().token else{
             
