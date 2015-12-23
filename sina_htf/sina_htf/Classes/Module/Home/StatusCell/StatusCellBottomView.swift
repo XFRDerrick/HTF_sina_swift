@@ -11,10 +11,17 @@ import UIKit
 class StatusCellBottomView: UIView {
 
     
+    @objc private func composeBtnDidClick(){
+    
+        print(__FUNCTION__)
+        let temp = TempViewController()
+        self.navController()?.pushViewController(temp, animated: true)
+        
+    }
+    
     override init(frame:CGRect) {
         
         super.init(frame: frame)
-//        backgroundColor = UIColor(white: 0.3, alpha: 1)
         
         setupUI()
     }
@@ -52,7 +59,7 @@ class StatusCellBottomView: UIView {
         //添加
         addSubview(sepView1)
         addSubview(sepView2)
-        //设置约束
+        //设置分割线约束
         let w = 0.5
         let scale = 0.4
         
@@ -68,6 +75,10 @@ class StatusCellBottomView: UIView {
             make.centerY.equalTo(self.snp_centerY)
             make.width.equalTo(w)
         }
+        
+        //为按钮添加点击事件
+        composeBtn.addTarget(self, action: "composeBtnDidClick", forControlEvents: .TouchUpInside )
+    
         
     }
      //MARK:- 生成分割线的方法

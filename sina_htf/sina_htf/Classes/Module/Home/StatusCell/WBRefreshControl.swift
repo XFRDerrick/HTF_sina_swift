@@ -46,11 +46,14 @@ class WBRefreshControl: UIControl {
                 arrowIcon.hidden = true
                 loadIcon.startAnimating()
                 
-                //修改contentView 调整动画效果停留
-                var inset = scrollView!.contentInset
-                inset.top += RefreshViewHeight
-                scrollView?.contentInset = inset
-               
+                UIView.animateWithDuration(0.25, animations: { () -> Void in
+                    //修改contentView 调整动画效果停留
+                    var inset = self.scrollView!.contentInset
+                    inset.top += RefreshViewHeight
+                    self.scrollView?.contentInset = inset
+                    
+                })
+    
                 sendActionsForControlEvents(.ValueChanged)
             case .Normal:
                 tipLable.text = "下拉起飞"
@@ -59,9 +62,13 @@ class WBRefreshControl: UIControl {
                 
                 //修改contentView 调整动画效果停留
                 if oldStatue == .Refreshing {
-                    var inset = scrollView!.contentInset
-                    inset.top -= RefreshViewHeight
-                    scrollView?.contentInset = inset
+                    UIView.animateWithDuration(0.25, animations: { () -> Void in
+                        //修改contentView 调整动画效果停留
+                        var inset = self.scrollView!.contentInset
+                        inset.top -= RefreshViewHeight
+                        self.scrollView?.contentInset = inset
+                        
+                    })
                 }
                 
                 UIView.animateWithDuration(1, animations: { () -> Void in
@@ -106,8 +113,13 @@ class WBRefreshControl: UIControl {
         
     }
     func endRefreshing(){
+    
+        //延时加载
+        let delta = dispatch_time(DISPATCH_TIME_NOW, Int64(1) * Int64(NSEC_PER_SEC))
+        dispatch_after(delta, dispatch_get_main_queue()) { () -> Void in
+             self.statue = .Normal
+        }
         
-        statue = .Normal
     }
     
     
