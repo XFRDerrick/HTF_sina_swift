@@ -35,7 +35,14 @@ class MainViewController: UITabBarController {
 //MARK:- 点击Tabbar上得加号按钮的点击响应事件
     @objc private func clickComposeBtn(){
     
-        print(__FUNCTION__)
+//        print(__FUNCTION__)
+        let compose = ComposeViewController()
+        
+        let nav = UINavigationController(rootViewController: compose)
+        
+        presentViewController(nav, animated: true, completion: nil)
+        
+        
     }
 //MARK:- 添加Tabbar对应的控制器
     private func addChildViewControllers() {

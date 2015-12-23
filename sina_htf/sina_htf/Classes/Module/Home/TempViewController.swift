@@ -12,24 +12,16 @@ class TempViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         view.backgroundColor = UIColor.whiteColor()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        title = "\(navigationController?.childViewControllers.count ?? 0)个控制器"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "PUSH", style: .Plain, target: self, action: "push")
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @objc private func push(){
+    
+        let temp = TempViewController()
+        navigationController?.pushViewController(temp, animated: true)
     }
-    */
 
 }
