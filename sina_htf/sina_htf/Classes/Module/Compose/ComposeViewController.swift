@@ -57,7 +57,9 @@ class ComposeViewController: UIViewController {
        //取消键盘的第一响应
         textView.resignFirstResponder()
         //显示图片选择器的视图
-//        selectorVC
+        selectorVC.view.snp_makeConstraints { (make) -> Void in
+            make.height.equalTo(226 + 88 + 60)
+        }
         
         
     }
@@ -69,7 +71,7 @@ class ComposeViewController: UIViewController {
     
     //MARK:- 懒加载子视图
     //创建pictureSelectViewController
-//    private lazy var selectorVC:
+    private lazy var selectorVC: PictureSelectorViewController = PictureSelectorViewController()
     private lazy var textView: UITextView = {
     
         let tv = UITextView()
@@ -116,6 +118,9 @@ extension ComposeViewController {
     private func setupUI(){
         
         setNavbBar()
+        //在导航控制器 + ScrollView在自动布局中需要注意的事项
+        //首先添加的约束 是从顶部开始添加约束 这时会自动开启 topLayoutGuide  srollView对应的contentInset.top = 64
+        //如果首先添加的约束是从底部开始的 这个时候会自动开启 bottomlayoutGuide 输出rollView的对应contentInset.bottom = 44
         setTextView()
         setToolBar()
         registerNotification()
@@ -163,7 +168,8 @@ extension ComposeViewController {
         for item in itemSettings {
         
             let imageName = item["imageName"]
-            let itemBtn = UIButton(imageNameN: imageName!, imageNameH: (imageName! + "_highlighted"))
+            
+            let itemBtn = UIButton(imageNameN: imageName!, imageNameH:  (imageName! + "_highlighted"), backImageNameN: nil, backImageNameH: nil)
             
             if let action = item["actionName"] {
                 

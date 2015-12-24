@@ -38,11 +38,19 @@ extension UIButton {
     
 //      private lazy var retweetedBtn: UIButton = UIButton(title: "转发", backImage: nil, color: UIColor.darkGrayColor(), fontSize: 10, isNeedHighlighted: false, imageName: "timeline_icon_retweet")
     //convenience  表示便利构造函数
-    convenience init ( imageNameN:String, imageNameH:String , backImageNameN:String? = nil, backImageNameH:String? = nil){
+    @objc convenience init ( imageNameN:String?, imageNameH:String? , backImageNameN:String? = nil, backImageNameH:String? = nil){
         
         self.init()
-        setImage(UIImage(named: imageNameN), forState: .Normal)
-        setImage(UIImage(named: imageNameH), forState: .Highlighted)
+        
+        if let imageNN = imageNameN {
+            
+            setImage(UIImage(named: imageNN), forState: .Normal)
+        }
+        
+        if let imageNH = imageNameH {
+            
+            setImage(UIImage(named: imageNH), forState: .Highlighted)
+        }
         
         if let backINN = backImageNameN {
             

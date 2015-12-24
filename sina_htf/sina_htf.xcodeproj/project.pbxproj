@@ -13,6 +13,7 @@
 		7C61B0601C2A6A7B00008C04 /* TempViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C61B05F1C2A6A7B00008C04 /* TempViewController.swift */; };
 		7C61B0631C2A710300008C04 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C61B0621C2A710300008C04 /* ComposeViewController.swift */; };
 		7C6275761C297D550094B043 /* WBRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6275751C297D550094B043 /* WBRefreshControl.swift */; };
+		7C69CED01C2BB51F00735188 /* PictureSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C69CECF1C2BB51F00735188 /* PictureSelectorViewController.swift */; };
 		7C9104A11C2122CD003EF1D0 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9104A01C2122CD003EF1D0 /* OAuthViewController.swift */; };
 		7C9104A31C212313003EF1D0 /* NewFeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9104A21C212313003EF1D0 /* NewFeatureViewController.swift */; };
 		7C9104A51C212341003EF1D0 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9104A41C212341003EF1D0 /* WelcomeViewController.swift */; };
@@ -70,6 +71,7 @@
 		7C61B05F1C2A6A7B00008C04 /* TempViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempViewController.swift; sourceTree = "<group>"; };
 		7C61B0621C2A710300008C04 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		7C6275751C297D550094B043 /* WBRefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBRefreshControl.swift; sourceTree = "<group>"; };
+		7C69CECF1C2BB51F00735188 /* PictureSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureSelectorViewController.swift; sourceTree = "<group>"; };
 		7C9104A01C2122CD003EF1D0 /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OAuthViewController.swift; path = OAuth/OAuthViewController.swift; sourceTree = "<group>"; };
 		7C9104A21C212313003EF1D0 /* NewFeatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFeatureViewController.swift; sourceTree = "<group>"; };
 		7C9104A41C212341003EF1D0 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				7C61B0621C2A710300008C04 /* ComposeViewController.swift */,
+				7C69CECF1C2BB51F00735188 /* PictureSelectorViewController.swift */,
 			);
 			path = Compose;
 			sourceTree = "<group>";
@@ -551,6 +554,7 @@
 				7CCC1E151C2400300003866C /* StatusPictureView.swift in Sources */,
 				7CDBE9591C2399BD00A8F9FC /* Status.swift in Sources */,
 				7CE0252C1C1C6B3700A16B7C /* MainTabBar.swift in Sources */,
+				7C69CED01C2BB51F00735188 /* PictureSelectorViewController.swift in Sources */,
 				7CCC1E111C23E9D90003866C /* StatusCellBottomView.swift in Sources */,
 				7CE2112D1C1BC0FD004212F1 /* AppDelegate.swift in Sources */,
 				7CDBE95E1C23A49800A8F9FC /* User.swift in Sources */,
