@@ -38,13 +38,21 @@ extension UIButton {
     
 //      private lazy var retweetedBtn: UIButton = UIButton(title: "转发", backImage: nil, color: UIColor.darkGrayColor(), fontSize: 10, isNeedHighlighted: false, imageName: "timeline_icon_retweet")
     //convenience  表示便利构造函数
-    convenience init ( imageNameN:String, imageNameH:String , backImageNameN:String, backImageNameH:String?){
+    convenience init ( imageNameN:String, imageNameH:String , backImageNameN:String? = nil, backImageNameH:String? = nil){
         
         self.init()
-        setImage(UIImage(named: "tabbar_compose_icon_add"), forState: .Normal)
-        setImage(UIImage(named: "tabbar_compose_icon_add_highlighted"), forState: .Highlighted)
-        setBackgroundImage(UIImage(named: "tabbar_compose_button"), forState: .Normal)
-        setBackgroundImage(UIImage(named: "tabbar_compose_button_highlighted"), forState: .Highlighted)
+        setImage(UIImage(named: imageNameN), forState: .Normal)
+        setImage(UIImage(named: imageNameH), forState: .Highlighted)
+        
+        if let backINN = backImageNameN {
+            
+            setBackgroundImage(UIImage(named: backINN), forState: .Normal)
+        }
+        
+        if let backINH = backImageNameH {
+            setBackgroundImage(UIImage(named: backINH), forState: .Highlighted)
+        }
+        
         sizeToFit()
     }
     
