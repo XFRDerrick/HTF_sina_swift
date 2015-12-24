@@ -13,6 +13,8 @@ private let reuseIdentifier = "Cell"
 private let margin: CGFloat = 5
 private let rowCount: CGFloat = 3
 
+private let maxImageCount = 4
+
 class PictureSelectorViewController: UICollectionViewController {
 
     private var imageList = [UIImage]()
@@ -49,7 +51,9 @@ class PictureSelectorViewController: UICollectionViewController {
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return imageList.count + 1
+        let delta = imageList.count == maxImageCount ? 0 : 1
+        
+        return imageList.count + delta
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -84,9 +88,12 @@ extension PictureSelectorViewController:PictureSelectureCellDelegate {
         
     }
     
-    func userWillChosePicture() {
+    
+    func userWillChosePicture(cell: PictureSelectureCell) {
         //选中图片的操作
-         print(__FUNCTION__)
+        if cell.image != nil {
+            return
+        }
         //得到图片选择器 控件
         let picker = UIImagePickerController()
         //modal出对应的图片选择器
@@ -129,7 +136,7 @@ extension PictureSelectorViewController: UIImagePickerControllerDelegate ,UINavi
 @objc protocol PictureSelectureCellDelegate: NSObjectProtocol {
     
     //协议方法
-    optional func userWillChosePicture()
+    optional func userWillChosePicture(cell: PictureSelectureCell)
     
     optional func userWillDeletePicture(cell: PictureSelectureCell)
 
@@ -145,6 +152,7 @@ class PictureSelectureCell: UICollectionViewCell {
             //如果设置的图片为空的话 就隐藏删除按钮
             deleteBtn.hidden = image == nil
             addBtn.setImage(image, forState: .Normal)
+           
         }
     }
     
@@ -152,7 +160,7 @@ class PictureSelectureCell: UICollectionViewCell {
     @objc private func addBtnDidClick(){
         
        
-        delegate?.userWillChosePicture?()
+        delegate?.userWillChosePicture?(self)
         
     }
     @objc private func deleteBtnDidClick(){
@@ -178,6 +186,7 @@ class PictureSelectureCell: UICollectionViewCell {
     
     private func setupUI(){
         
+        addBtn.imageView?.contentMode = .ScaleAspectFill
         contentView.addSubview(addBtn)
         contentView.addSubview(deleteBtn)
         
