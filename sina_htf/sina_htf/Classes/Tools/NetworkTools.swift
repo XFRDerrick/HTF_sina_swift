@@ -95,6 +95,36 @@ class NetworkTools: AFHTTPSessionManager {
         }
         
     }
+    //MARK:- 上传图片的工具方法
+   
+    func upLoadImage(urlString:String, parameters:[String: String]?, imageData: NSData,  finished: (dict: [String: AnyObject]?, error: NSError?) ->()){
+        
+        POST(urlString, parameters: parameters, constructingBodyWithBlock: { (formData) -> Void in
+            //将图片的二进制添加到fromData中
+            /**
+            *  data 需要上传的二进制数据
+                name 服务器接受上传文件需要对应字段
+                fileName 服务器存储的名称
+                mimeType 上传文件的类型
+            */
+            formData.appendPartWithFileData(imageData, name: "pic", fileName: "zidingyi", mimeType: "image/jpeg")
+            
+            }, progress: { (p) -> Void in
+                print(p)
+            }, success: { (_, result) -> Void in
+                //上传成功
+                if let dict = result as? [String: AnyObject] {
+                    
+                    finished(dict: dict, error: nil)
+                
+                }
+
+            }, failure: { (_, error) -> Void in
+                
+                finished(dict: nil, error: error)
+        })
+ 
+    }
     
     
     

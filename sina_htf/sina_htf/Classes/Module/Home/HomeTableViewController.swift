@@ -31,10 +31,13 @@ class HomeTableViewController: BaseTableViewController {
         }
         //设置tableVIew 只有登录之后才有tabView 才能对其进行设置更新
         prepareTableView()
-        loadData()
-        
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        loadData()
+    }
+    
     //MARK:- 有关tabView的准备设置行高的设置
     private func prepareTableView(){
         

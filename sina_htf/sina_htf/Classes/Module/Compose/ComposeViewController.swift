@@ -22,28 +22,53 @@ class ComposeViewController: UIViewController {
 //MARK:-
     @objc private func sender(){
     
-        let urlString = "2/statuses/update.json"
+        //上传文本
+        var urlString = "2/statuses/update.json"
         
         guard let token = UserAccountViewModel().token else{
-        SVProgressHUD.showInfoWithStatus("请重新登录", maskType: .Gradient)
+            SVProgressHUD.showInfoWithStatus("请重新登录", maskType: .Gradient)
             return
         }
+        
         let parameter = ["access_token": token, "status": textView.text ?? ""]
         
-        NetworkTools.sharedTools.requestJSONDict( .POST, urlString: urlString, parameters: parameter) { (dict, error) -> () in
-            if error != nil {
+        if selectorVC.imageList.count != 0 {
             
-                SVProgressHUD.showInfoWithStatus("发布微博失败,请检查网络", maskType: .Gradient)
-                return
+            //上传图片
+            urlString = "https://upload.api.weibo.com/2/statuses/upload.json"
+            let imageData = UIImagePNGRepresentation(selectorVC.imageList.first!)
+            
+            NetworkTools.sharedTools.upLoadImage(urlString, parameters: parameter, imageData: imageData!, finished: { (dict, error) -> () in
+                
+                self.finishedUpdataStatus(dict, error: error)
+    
+            })
+            
+        }else{
+        
+            //发布文本微博
+            
+            NetworkTools.sharedTools.requestJSONDict( .POST, urlString: urlString, parameters: parameter) { (dict, error) -> () in
+                
+                self.finishedUpdataStatus(dict, error: error)
             }
-            SVProgressHUD.showSuccessWithStatus("发布微博成功", maskType: .Gradient)
-           
-            self.dismissViewControllerAnimated(true, completion: nil)
+            
         }
+    }
+    //发送功能的方法抽取
+    private func finishedUpdataStatus(dict: [String : AnyObject]?, error: NSError?) {
+        if error != nil {
+            
+            SVProgressHUD.showInfoWithStatus("发布微博失败,请检查网络", maskType: .Gradient)
+            return
+        }
+        SVProgressHUD.showSuccessWithStatus("发布微博成功", maskType: .Gradient)
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
         
         
     }
-    
+    //MARK:-
     override func viewDidLoad() {
         super.viewDidLoad()
         
