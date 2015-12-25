@@ -19,7 +19,7 @@ class ComposeViewController: UIViewController {
         
     }
     
-//MARK:-
+//MARK:- 发送 写微博
     @objc private func sender(){
     
         //上传文本
@@ -109,8 +109,10 @@ class ComposeViewController: UIViewController {
     }
     
     //MARK:- 懒加载子视图
-    //创建pictureSelectViewController
+    //创建图片选择视图
     private lazy var selectorVC: PictureSelectorViewController = PictureSelectorViewController()
+   
+    //文本编辑视图
     private lazy var textView: UITextView = {
     
         let tv = UITextView()
@@ -125,8 +127,11 @@ class ComposeViewController: UIViewController {
         return tv
     
     }()
+   
     //占位文本
     private lazy var placeHolderLaber: UILabel = UILabel(title: "请输入新鲜事", color: UIColor.lightGrayColor(), fontSize: 18)
+   
+    //键盘tool视图
     private lazy var toolBar: UIToolbar = UIToolbar()
     deinit{
     
@@ -137,7 +142,7 @@ class ComposeViewController: UIViewController {
     
 }
 
-
+//编辑文本视图的监听
 extension ComposeViewController: UITextViewDelegate {
 
     //实时检测文本的改变使用
@@ -210,7 +215,7 @@ extension ComposeViewController {
         }
         
     }
-    
+    //键盘辅助tool的设置
     private func setToolBar(){
 
         //给toolBar 设置items
@@ -256,7 +261,7 @@ extension ComposeViewController {
 
     }
     
- 
+    //编辑文本视图的设置
     private func setTextView(){
         
         view.addSubview(textView)
@@ -276,7 +281,7 @@ extension ComposeViewController {
         
     }
     
-
+    //顶部bar视图的设置
     private func setNavbBar(){
         
         //设置导航条
