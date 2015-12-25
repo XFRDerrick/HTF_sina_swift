@@ -11,13 +11,13 @@ import SnapKit
 
 private let reuseIdentifier = "Cell"
 private let margin: CGFloat = 5
-private let rowCount: CGFloat = 3
+private let rowCount: CGFloat = 5
 
-private let maxImageCount = 4
+private let maxImageCount = 9
 
 class PictureSelectorViewController: UICollectionViewController {
 
-    private var imageList = [UIImage]()
+    var imageList = [UIImage]()
     
     init(){
         //设置layout
@@ -31,6 +31,9 @@ class PictureSelectorViewController: UICollectionViewController {
         //设置组间距
         layout.sectionInset = UIEdgeInsets(top: margin , left: margin, bottom: 0, right: margin)
         super.init(collectionViewLayout: layout)
+        
+        collectionView?.backgroundColor = UIColor.whiteColor()
+        
     }
 
     required init?(coder aDecoder: NSCoder) {

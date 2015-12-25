@@ -32,9 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         registerNotification()
         
         //设置根控制器
-//        window?.rootViewController = defaultViewController()
+        window?.rootViewController = defaultViewController()
         
-        window?.rootViewController = PictureSelectorViewController()
         return true
     }
     

@@ -46,19 +46,33 @@ class ComposeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.backgroundColor = UIColor.whiteColor()
         setupUI()
         
     }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        if selectorVC.imageList.count == 0 {
+            textView.becomeFirstResponder()
+        }
+        
+    }
+    
     
     @objc private func selectPicture(){
         
-       //取消键盘的第一响应
+        //取消键盘的第一响应
         textView.resignFirstResponder()
         //显示图片选择器的视图
-        selectorVC.view.snp_makeConstraints { (make) -> Void in
-            make.height.equalTo(226 + 88 + 60)
+
+        selectorVC.view.snp_updateConstraints { (make) -> Void in
+            make.height.equalTo(screenH / 3 * 2)
+        }
+        
+        UIView.animateWithDuration(0.25) { () -> Void in
+            
+            self.view.layoutIfNeeded()
         }
         
         
@@ -123,9 +137,27 @@ extension ComposeViewController {
         //如果首先添加的约束是从底部开始的 这个时候会自动开启 bottomlayoutGuide 输出rollView的对应contentInset.bottom = 44
         setTextView()
         setToolBar()
+        
+        setPictureSeletorVC()
         registerNotification()
         
     }
+    
+    private func setPictureSeletorVC(){
+    
+        addChildViewController(selectorVC)
+        view.addSubview(selectorVC.view)
+        
+        //将toolbar 移动到视图的最顶层
+        view.bringSubviewToFront(toolBar)
+        //设置约束
+        selectorVC.view.snp_makeConstraints { (make) -> Void in
+            make.left.right.bottom.equalTo(self.view)
+            make.height.equalTo(0)
+        }
+    
+    }
+    
     //注册键盘的通知 绑定toolBar
     private func registerNotification(){
      
