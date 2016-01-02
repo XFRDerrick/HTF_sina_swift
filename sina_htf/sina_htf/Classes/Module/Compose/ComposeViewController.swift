@@ -13,7 +13,11 @@ import SVProgressHUD
 class ComposeViewController: UIViewController {
 
     //自定义表情键盘视图
-    
+    private lazy var emoticonKeyBoardView: EmoticonKeyBoardView = EmoticonKeyBoardView { [unowned self](em) -> () in
+        
+        self.textView.insertEmoticon(em)
+        
+    }
     
     
     //响应方法 close
@@ -108,7 +112,13 @@ class ComposeViewController: UIViewController {
     }
     
     @objc private func selectEmoticonKeyboard(){
-        print(__FUNCTION__)
+
+        //先让键盘失去第一响应者 指定inputView
+        textView.resignFirstResponder()
+        textView.inputView = textView.inputView == nil ? emoticonKeyBoardView : nil
+        
+//        textView.inputView = emoticonKeyBoardView
+        textView.becomeFirstResponder()
         
     }
     
@@ -117,9 +127,9 @@ class ComposeViewController: UIViewController {
     private lazy var selectorVC: PictureSelectorViewController = PictureSelectorViewController()
    
     //文本编辑视图
-    private lazy var textView: UITextView = {
+    private lazy var textView: EmoticonTextView = {
     
-        let tv = UITextView()
+        let tv = EmoticonTextView()
 //        tv.text = "请输入新鲜事"
         tv.font = UIFont.systemFontOfSize(14)
         tv.backgroundColor = UIColor.randomColor()
@@ -205,6 +215,7 @@ extension ComposeViewController {
         
         let rect = (n.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
         
+        
         let curve = n.userInfo![UIKeyboardAnimationCurveUserInfoKey] as! Int
 
         //更改toolBar的底部约束
@@ -214,6 +225,7 @@ extension ComposeViewController {
         }
         
         UIView.animateWithDuration(duration) { () -> Void in
+            
             UIView.setAnimationCurve(UIViewAnimationCurve(rawValue: curve)!)
             self.view.layoutIfNeeded()
         }
