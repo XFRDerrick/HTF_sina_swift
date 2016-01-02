@@ -226,6 +226,8 @@ extension ComposeViewController {
         
         UIView.animateWithDuration(duration) { () -> Void in
             
+            //在动画闭包中设置动画的曲线 值 一旦设置了曲线值 动画时间就会失效
+            //在调用自定义表情键盘的时候tarbar不会 再跳动了就
             UIView.setAnimationCurve(UIViewAnimationCurve(rawValue: curve)!)
             self.view.layoutIfNeeded()
         }

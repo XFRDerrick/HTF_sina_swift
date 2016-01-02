@@ -74,6 +74,9 @@ class EmoticonTextView: UITextView {
         //替换之后 恢复光标
         selectedRange = NSMakeRange(range.location + 1 , 0)
         
+        //主动的区调用 协议方法
+        delegate?.textViewDidChange?(self)
+        
     }
     
 
