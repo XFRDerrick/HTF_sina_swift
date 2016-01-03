@@ -14,6 +14,14 @@ import SnapKit
 
 class StatusCellTopView: UIView {
    
+    //来源的点击事件 实现页面跳转
+    @objc private func sourceBtnDidClick(){
+    
+        let web = WebViewController()
+        web.urlString = status?.source?.linkAndText().url
+        
+        navController()?.pushViewController(web, animated: true)
+    }
     
     //定义视图 的底部约束的属性
     var bottomConstraints: Constraint?
@@ -29,7 +37,7 @@ class StatusCellTopView: UIView {
             verified_type_image.image = status?.user?.verified_type_image
             //TODO: 后续完善
             timeLable.text = NSDate.sinaDate(status?.created_at ?? "")?.fullText()
-            sourceLable.text = status?.source
+            sourceBtn.setTitle(status?.source?.linkAndText().text, forState: .Normal)
             
             contentLable.text = status?.text
             
@@ -74,7 +82,7 @@ class StatusCellTopView: UIView {
         addSubview(mbrankImage)
         addSubview(verified_type_image)
         addSubview(timeLable)
-        addSubview(sourceLable)
+        addSubview(sourceBtn)
         addSubview(contentLable)
         //添加对应的约束
         sepView.backgroundColor = UIColor(white: 0.9, alpha: 1)
@@ -96,6 +104,7 @@ class StatusCellTopView: UIView {
             make.top.equalTo(nameLable.snp_top)
             make.left.equalTo(nameLable.snp_right).offset(StatusCellMarigin)
         }
+        
         verified_type_image.snp_makeConstraints { (make) -> Void in
             make.centerX.equalTo(iconImage.snp_right)
             make.centerY.equalTo(iconImage.snp_bottom)
@@ -104,9 +113,10 @@ class StatusCellTopView: UIView {
             make.bottom.equalTo(iconImage.snp_bottom)
             make.left.equalTo(iconImage.snp_right).offset(StatusCellMarigin)
         }
-        sourceLable.snp_makeConstraints { (make) -> Void in
+        sourceBtn.snp_makeConstraints { (make) -> Void in
             make.bottom.equalTo(iconImage.snp_bottom)
             make.left.equalTo(timeLable.snp_right).offset(StatusCellMarigin)
+            make.height.equalTo(timeLable.snp_height)
         }
         contentLable.snp_makeConstraints { (make) -> Void in
             make.top.equalTo(iconImage.snp_bottom).offset(StatusCellMarigin)
@@ -130,7 +140,8 @@ class StatusCellTopView: UIView {
         self.snp_makeConstraints { (make) -> Void in
             self.bottomConstraints = make.bottom.equalTo(pictureView.snp_bottom).offset(StatusCellMarigin).constraint
         }
-        
+        //绑定点击事件
+        sourceBtn.addTarget(self, action: "sourceBtnDidClick", forControlEvents: .TouchUpInside)
         
         
     }
@@ -142,7 +153,9 @@ class StatusCellTopView: UIView {
     private lazy var mbrankImage: UIImageView = UIImageView(image: UIImage(named: "common_icon_membership"))
     private lazy var verified_type_image = UIImageView(image: UIImage(named: "avatar_vip"))
     private lazy var timeLable: UILabel = UILabel(title: "20分钟前", color: themeColor, fontSize: 10)
-    private lazy var sourceLable: UILabel = UILabel(title: "一点资讯", color: themeColor, fontSize: 10)
+   
+    private lazy var sourceBtn: UIButton = UIButton(backImageNameN: nil, backImageNameH: nil, color: themeColor, title: "", fontOfSize: 10)
+//    private lazy var sourceLable: UILabel = UILabel(title: "一点资讯", color: themeColor, fontSize: 10)
     private lazy var contentLable: UILabel = UILabel(title: "炸鸡啤酒炸鸡啤酒炸鸡啤酒炸鸡啤酒", color: UIColor.darkGrayColor(), fontSize: 14,margin: StatusCellMarigin)
     
     //添加配图视图
