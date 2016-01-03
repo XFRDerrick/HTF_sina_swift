@@ -62,7 +62,7 @@ class EmoticonManager: NSObject {
     
     private func getEmoticonWithEmoticonText(str: String) -> Emoticon? {
        
-        let packages = EmoticonManager().packages
+        let packages = EmoticonManager.shareEmoticonManager.packages
         for p in packages {
             //filter  过滤 滤镜
             
