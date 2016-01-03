@@ -12,10 +12,14 @@ import UIKit
 
 class EmoticonManager: NSObject {
     
+    //定义单例对象
+    static let shareEmoticonManager = EmoticonManager()
+    
     //分组表情数组
     lazy var packages = [EmoticonPackages]()
     
-    override init() {
+    //将初始化方法私有化
+    private override init() {
         
         super.init()
         loadEmoticon()

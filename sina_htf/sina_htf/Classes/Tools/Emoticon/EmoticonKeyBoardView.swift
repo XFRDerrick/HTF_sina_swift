@@ -18,7 +18,7 @@ class EmoticonKeyBoardView: UIView {
     var selectEmoticonBlock: ((em: Emoticon) ->())?
     
     //获取数据
-    private lazy var packages = EmoticonManager().packages
+    private lazy var packages = EmoticonManager.shareEmoticonManager.packages
     @objc private func itemDidClick(item: UIBarButtonItem){
         
         let indexPath = NSIndexPath(forItem: 0, inSection: item.tag)
