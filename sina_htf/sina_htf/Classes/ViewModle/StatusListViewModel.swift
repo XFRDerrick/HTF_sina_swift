@@ -91,7 +91,7 @@ class StatusListViewModel: NSObject {
             //入组
             dispatch_group_enter(group)
             SDWebImageManager.sharedManager().downloadImageWithURL(s.pictureURLs?.last, options: [], progress: nil, completed: { (_, _, _, _, _) -> Void in
-                print("下载单张图片成功")
+//                print("下载单张图片成功")
                 
                 //任务完成之后 必须出租  入组和出租是一一对应的有如有出
                 dispatch_group_leave(group)

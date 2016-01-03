@@ -20,7 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 是否登录
 //        let account = UserAccount.loadAccount()
 //        print("是否存储登陆过----\(account)")
+        let path = (NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last! as NSString).stringByAppendingPathComponent("account.plist")
         
+        print(path)
         //判断是否是新的版本
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)

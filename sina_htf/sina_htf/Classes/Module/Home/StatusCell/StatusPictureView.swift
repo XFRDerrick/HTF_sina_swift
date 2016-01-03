@@ -6,8 +6,10 @@
 //  Copyright © 2015年 hetefe. All rights reserved.
 //
 
-//import Snap
+import SnapKit
 import UIKit
+import SDWebImage
+
 private let pictureCellID: String =  "pictureCellID"
 private let pictureCellMargin: CGFloat =  5
 
@@ -85,7 +87,17 @@ class StatusPictureView: UICollectionView {
         if iamgeCount == 1 {
             //TODO: 单图会按照图片等比例显示
             //先固定尺寸
-            let imageSize = CGSize(width: 180, height: 120)
+            //获取单张图片
+            var imageSize = CGSize(width: 180, height: 120)
+            //获取单张图片
+            let key = imageURLs!.last!.absoluteString
+            let image = SDWebImageManager.sharedManager().imageCache.imageFromDiskCacheForKey(key)
+            
+            if image != nil {
+                
+                imageSize = image.size
+            }
+            //设置单张图片的大小
             layout.itemSize = imageSize
             
             return imageSize
