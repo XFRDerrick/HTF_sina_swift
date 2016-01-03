@@ -23,6 +23,57 @@ class EmoticonManager: NSObject {
         
     }
     
+    func statusTextToImagwText(str: String, font: UIFont) -> NSAttributedString {
+        
+        let pattern = "\\[.*?\\]"
+        
+        let regex = try! NSRegularExpression(pattern: pattern, options: [])
+        // 需要表情数组 表情文字 在 表情数据源中 查找 表情模型
+        // matchesInString  会进行多次查找
+        let results = regex.matchesInString(str, options: [], range: NSRange(location: 0, length: str.characters.count))
+        //遍历结果集   倒序
+        var index = results.count - 1
+        //获取表情数据源的数组
+        let strM = NSMutableAttributedString(string: str)
+        while index >= 0 {
+            let result = results[index]
+            let range = result.rangeAtIndex(0)
+            let subStr = (str as NSString).substringWithRange(range)
+            //            print(subStr)
+            //获取到表情模型
+            if let em = getEmoticonWithEmoticonText(subStr) {
+                //表情模型 中 有图片地址
+                
+                
+                let imageText = EmoticonTextAttachment().emoticonTextToImageText(em,font: font)
+                //将图片转换为 附件 -> 富文本
+                strM.replaceCharactersInRange(range, withAttributedString: imageText)
+            }
+            
+            index--
+        }
+        //替换富文本
+        return strM
+    }
+    
+    private func getEmoticonWithEmoticonText(str: String) -> Emoticon? {
+       
+        let packages = EmoticonManager().packages
+        for p in packages {
+            //filter  过滤 滤镜
+            
+            let emoticones = p.emoticons.filter({ (em) -> Bool in
+                //返回一个过滤条件
+                return em.chs == str
+            })
+            
+            if emoticones.count != 0 {
+                return emoticones.last
+            }
+        }
+        
+        return nil
+    }
     
     func loadEmoticon(){
     

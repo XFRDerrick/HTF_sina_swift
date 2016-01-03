@@ -39,7 +39,7 @@ class StatusCellTopView: UIView {
             timeLable.text = NSDate.sinaDate(status?.created_at ?? "")?.fullText()
             sourceBtn.setTitle(status?.source?.linkAndText().text, forState: .Normal)
             
-            contentLable.text = status?.text
+            contentLable.attributedText = EmoticonManager().statusTextToImagwText(status?.text ?? "", font: contentLable.font)//status?.text
             
             //设置配图视图的 图片数组的数据源
             pictureView.imageURLs = status?.imageURLs
