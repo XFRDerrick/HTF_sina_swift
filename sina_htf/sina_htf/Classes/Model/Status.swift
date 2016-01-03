@@ -68,7 +68,7 @@ class Status: NSObject {
                 //一定能够显示
                 var urlString = item["thumbnail_pic"]!
                 
-                urlString = urlString.stringByReplacingOccurrencesOfString("thumbnail", withString: "square")
+//                urlString = urlString.stringByReplacingOccurrencesOfString("thumbnail", withString: "square")
                 let url = NSURL(string: urlString)
                 //添加URL
                 imageURLs!.append(url!)
@@ -78,6 +78,15 @@ class Status: NSObject {
     }
     //将获取的数组数据， 转换成URL对象
     var imageURLs: [NSURL]?
+    
+    //只要是转发微博  那么原创中一定没有图片
+    var pictureURLs:[NSURL]? {
+        if retweeted_status != nil {
+            return retweeted_status?.imageURLs
+        }
+        //返回原创微博的图片
+        return imageURLs
+    }
     
     //转发微博模型
     var retweeted_status: Status?
