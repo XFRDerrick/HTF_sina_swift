@@ -15,6 +15,9 @@
 		7C00A7C51C38334800349FA4 /* EmoticonTextAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C00A7BD1C38334800349FA4 /* EmoticonTextAttachment.swift */; };
 		7C00A7C61C38334800349FA4 /* EmoticonTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C00A7BE1C38334800349FA4 /* EmoticonTextView.swift */; };
 		7C00A7C71C38334800349FA4 /* String+Emoticon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C00A7BF1C38334800349FA4 /* String+Emoticon.swift */; };
+		7C1547E81C395F6200F198FF /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1547E21C395F6200F198FF /* SDBrowserImageView.m */; };
+		7C1547E91C395F6200F198FF /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1547E41C395F6200F198FF /* SDPhotoBrowser.m */; };
+		7C1547EA1C395F6200F198FF /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1547E71C395F6200F198FF /* SDWaitingView.m */; };
 		7C45263D1C22894A0001CF3C /* UILable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C45263C1C22894A0001CF3C /* UILable+Extension.swift */; };
 		7C45263F1C228B810001CF3C /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C45263E1C228B810001CF3C /* UIButton+Extension.swift */; };
 		7C61B05E1C2A691000008C04 /* UIView+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C61B05D1C2A691000008C04 /* UIView+ViewController.swift */; };
@@ -81,6 +84,14 @@
 		7C00A7BD1C38334800349FA4 /* EmoticonTextAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonTextAttachment.swift; sourceTree = "<group>"; };
 		7C00A7BE1C38334800349FA4 /* EmoticonTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonTextView.swift; sourceTree = "<group>"; };
 		7C00A7BF1C38334800349FA4 /* String+Emoticon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Emoticon.swift"; sourceTree = "<group>"; };
+		7C1547E11C395F6200F198FF /* SDBrowserImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBrowserImageView.h; sourceTree = "<group>"; };
+		7C1547E21C395F6200F198FF /* SDBrowserImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBrowserImageView.m; sourceTree = "<group>"; };
+		7C1547E31C395F6200F198FF /* SDPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowser.h; sourceTree = "<group>"; };
+		7C1547E41C395F6200F198FF /* SDPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPhotoBrowser.m; sourceTree = "<group>"; };
+		7C1547E51C395F6200F198FF /* SDPhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowserConfig.h; sourceTree = "<group>"; };
+		7C1547E61C395F6200F198FF /* SDWaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWaitingView.h; sourceTree = "<group>"; };
+		7C1547E71C395F6200F198FF /* SDWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWaitingView.m; sourceTree = "<group>"; };
+		7C1547EB1C395FAE00F198FF /* sina_htf-Bridge-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sina_htf-Bridge-header.h"; sourceTree = "<group>"; };
 		7C45263C1C22894A0001CF3C /* UILable+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILable+Extension.swift"; sourceTree = "<group>"; };
 		7C45263E1C228B810001CF3C /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		7C61B05D1C2A691000008C04 /* UIView+ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ViewController.swift"; sourceTree = "<group>"; };
@@ -164,6 +175,28 @@
 				7C00A7BF1C38334800349FA4 /* String+Emoticon.swift */,
 			);
 			path = Emoticon;
+			sourceTree = "<group>";
+		};
+		7C1547DF1C395F4400F198FF /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				7C1547E01C395F6200F198FF /* SDPhotoBrowser */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		7C1547E01C395F6200F198FF /* SDPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				7C1547E11C395F6200F198FF /* SDBrowserImageView.h */,
+				7C1547E21C395F6200F198FF /* SDBrowserImageView.m */,
+				7C1547E31C395F6200F198FF /* SDPhotoBrowser.h */,
+				7C1547E41C395F6200F198FF /* SDPhotoBrowser.m */,
+				7C1547E51C395F6200F198FF /* SDPhotoBrowserConfig.h */,
+				7C1547E61C395F6200F198FF /* SDWaitingView.h */,
+				7C1547E71C395F6200F198FF /* SDWaitingView.m */,
+			);
+			path = SDPhotoBrowser;
 			sourceTree = "<group>";
 		};
 		7C22BB3B59E04A3EC50A9B80 /* Frameworks */ = {
@@ -261,6 +294,7 @@
 				7CE2112C1C1BC0FD004212F1 /* AppDelegate.swift */,
 				7CE211331C1BC0FD004212F1 /* Assets.xcassets */,
 				7CE211381C1BC0FD004212F1 /* Info.plist */,
+				7C1547EB1C395FAE00F198FF /* sina_htf-Bridge-header.h */,
 			);
 			path = sina_htf;
 			sourceTree = "<group>";
@@ -286,6 +320,7 @@
 		7CE211D81C1BE39A004212F1 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				7C1547DF1C395F4400F198FF /* Lib */,
 				7CE211D91C1BE39A004212F1 /* Model */,
 				7CE211DA1C1BE39A004212F1 /* Module */,
 				7CE211E01C1BE39A004212F1 /* Tools */,
@@ -579,6 +614,7 @@
 			files = (
 				7CDBF8921C1EA3EB00579199 /* UserAccountViewModel.swift in Sources */,
 				7CE211ED1C1BE54C004212F1 /* ProfileTableViewController.swift in Sources */,
+				7C1547E91C395F6200F198FF /* SDPhotoBrowser.m in Sources */,
 				7C6275761C297D550094B043 /* WBRefreshControl.swift in Sources */,
 				7CE211E71C1BE4F5004212F1 /* HomeTableViewController.swift in Sources */,
 				7C00A7C51C38334800349FA4 /* EmoticonTextAttachment.swift in Sources */,
@@ -587,6 +623,7 @@
 				7CE025301C1C805100A16B7C /* BaseTableViewController.swift in Sources */,
 				7CCC1E151C2400300003866C /* StatusPictureView.swift in Sources */,
 				7CDBE9591C2399BD00A8F9FC /* Status.swift in Sources */,
+				7C1547EA1C395F6200F198FF /* SDWaitingView.m in Sources */,
 				7CE0252C1C1C6B3700A16B7C /* MainTabBar.swift in Sources */,
 				7C69CED01C2BB51F00735188 /* PictureSelectorViewController.swift in Sources */,
 				7CCC1E111C23E9D90003866C /* StatusCellBottomView.swift in Sources */,
@@ -601,6 +638,7 @@
 				7C00A7C71C38334800349FA4 /* String+Emoticon.swift in Sources */,
 				7CF141221C24EACA008B6329 /* UIColor+Extension.swift in Sources */,
 				7CDBE9601C23B57F00A8F9FC /* StatusCellTopView.swift in Sources */,
+				7C1547E81C395F6200F198FF /* SDBrowserImageView.m in Sources */,
 				7CE211E91C1BE52C004212F1 /* MessageTableViewController.swift in Sources */,
 				7CE211EB1C1BE53E004212F1 /* DiscoverTableViewController.swift in Sources */,
 				7CE025331C1C875400A16B7C /* VisitorLoginView.swift in Sources */,
@@ -745,6 +783,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.somethinginteresting.sina-htf";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "sina_htf/sina_htf-Bridge-header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -760,6 +799,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.somethinginteresting.sina-htf";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "sina_htf/sina_htf-Bridge-header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
