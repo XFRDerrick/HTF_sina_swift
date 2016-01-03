@@ -51,6 +51,9 @@ class StatusPictureView: UICollectionView {
         
         //设置配图视图 的协议
         self.delegate = self
+        //设置不能响应点击状态栏回到顶部
+        self.scrollsToTop = false
+        
         setupUI()
         
     }
