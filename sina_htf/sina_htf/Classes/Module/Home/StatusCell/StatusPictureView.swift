@@ -49,6 +49,8 @@ class StatusPictureView: UICollectionView {
         //设置数据源
         self.dataSource = self
         
+        //设置配图视图 的协议
+        self.delegate = self
         setupUI()
         
     }
@@ -132,7 +134,7 @@ class StatusPictureView: UICollectionView {
 
 }
 
-extension StatusPictureView: UICollectionViewDataSource {
+extension StatusPictureView: UICollectionViewDataSource ,UICollectionViewDelegate{
 
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -150,7 +152,48 @@ extension StatusPictureView: UICollectionViewDataSource {
         return cell
         
     }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        let brower = SDPhotoBrowser()
+        //被点击的图片的容器视图
+        brower.sourceImagesContainerView = self
+        brower.imageCount = imageURLs?.count ?? 0
+        
+        brower.currentImageIndex = indexPath.item
+        
+        brower.delegate = self
+        //展是图片浏览
+        brower.show()
+        
+    }
 
+}
+
+extension StatusPictureView: SDPhotoBrowserDelegate {
+
+    //代理方法
+    //占位的Image图片
+    func photoBrowser(browser: SDPhotoBrowser!, placeholderImageForIndex index: Int) -> UIImage! {
+        
+        let indexPath = NSIndexPath(forItem: index, inSection: 0)
+        if let cell = self.cellForItemAtIndexPath(indexPath) as? PictureCell {
+            return cell.iconImageView.image
+        }
+        return nil
+        
+    }
+    //返回一个高质量的图片的URL
+    func photoBrowser(browser: SDPhotoBrowser!, highQualityImageURLForIndex index: Int) -> NSURL! {
+        
+        if let placeholderString = imageURLs?[index].absoluteString {
+            //将占位图片的URL转换为高质量的URL
+            let highQualityImage = placeholderString.stringByReplacingOccurrencesOfString("thumbnail", withString: "large")
+            return NSURL(string: highQualityImage)
+        }
+     return nil
+    }
+   
 }
 
 //MARK:- 自定义Cell使用时去注册
