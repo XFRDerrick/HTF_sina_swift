@@ -31,6 +31,13 @@ class HomeTableViewController: BaseTableViewController {
         }
         //设置tableVIew 只有登录之后才有tabView 才能对其进行设置更新
         prepareTableView()
+        
+        //设置提示文案的背景颜色
+        
+        self.navigationController?.navigationBar.addSubview(tipLable)
+        //移动到底部
+        self.navigationController?.navigationBar.insertSubview(tipLable, atIndex: 0)
+        
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -63,14 +70,46 @@ class HomeTableViewController: BaseTableViewController {
         //设置TabView的footerView- 小菊花
         tableView.tableFooterView = indicatorView
         
-        
-        
     }
+    
+    private func showTipLableAnimation(count : Int){
+    
+        let text = count == 0 ? "没有新微博":"有\(count)条新微博"
+        tipLable.text = text
+        //在动画之前记录frame
+        let rect = tipLable.frame
+        UIView.animateWithDuration(1, animations: { () -> Void in
+              self.tipLable.frame = CGRect(x: 0, y: 44, width: screenW, height: 44)
+            
+            
+            }) { (_) -> Void in
+            
+                UIView.animateWithDuration(0.5, delay: 1, options: [], animations: { () -> Void in
+                     self.tipLable.frame = rect
+                    }, completion: { (_) -> Void in
+                })
+               
+        }
+    
+    }
+    
     private lazy var indicatorView: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
         //        indicator.startAnimating()
         return indicator
     }()
+    
+    private lazy var tipLable: UILabel = {
+    
+        let l = UILabel(frame: CGRect(x: 0, y: -64, width: screenW, height: 44))
+       
+        l.backgroundColor = themeColor
+        l.font = UIFont.systemFontOfSize(16)
+        l.textColor = UIColor.whiteColor()
+        l.textAlignment = .Center
+        return l
+    }()
+    
     
   //加载数据请求 不加@objc会崩溃
    @objc private func loadData(){
@@ -101,6 +140,8 @@ class HomeTableViewController: BaseTableViewController {
 //                if self.tableView.dragging {
 //                    return
 //                }
+                
+                self.showTipLableAnimation(list.count)
                 
             }else if max_id > 0{
                 

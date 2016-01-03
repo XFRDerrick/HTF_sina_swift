@@ -53,11 +53,9 @@ class StatusPictureView: UICollectionView {
         self.delegate = self
         //设置不能响应点击状态栏回到顶部
         self.scrollsToTop = false
-        
         setupUI()
         
     }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
