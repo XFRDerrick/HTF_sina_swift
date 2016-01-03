@@ -48,20 +48,56 @@ class MainViewController: UITabBarController {
     private func addChildViewControllers() {
         //调用pch 的tool工具设置颜色
         tabBar.tintColor = themeColor
-        addChildViewController("首页", imageName: "tabbar_home", vc: HomeTableViewController())
-        addChildViewController("消息", imageName: "tabbar_message_center", vc: MessageTableViewController())
-        addChildViewController("发现", imageName: "tabbar_discover", vc: DiscoverTableViewController())
-        addChildViewController("我", imageName: "tabbar_profile", vc: ProfileTableViewController())
+        addChildViewController("首页", imageName: "tabbar_home", vc: HomeTableViewController(),index: 0)
+        addChildViewController("消息", imageName: "tabbar_message_center", vc: MessageTableViewController(),index: 1)
+        addChildViewController("发现", imageName: "tabbar_discover", vc: DiscoverTableViewController(),index: 2)
+        addChildViewController("我", imageName: "tabbar_profile", vc: ProfileTableViewController(),index: 3)
     }
 //MARK:- 添加Tabbar对应的控制器的方法
-    private func addChildViewController(title:String , imageName:String,vc:UIViewController) {
+    private func addChildViewController(title:String , imageName:String,vc:UIViewController , index : Int) {
         //添加Tabbaritem Controller
         let nav = UINavigationController(rootViewController: vc)
         vc.title = title
+        vc.tabBarItem.tag = index
         vc.tabBarItem.image = UIImage(named: imageName)
         self.addChildViewController(nav)
+            }
+}
+
+extension MainViewController {
+    
+    override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+        
+//        print(item.tag)
+        
+        var index = 0
+        for subview in tabBar.subviews {
+            //当是Tabbar btn的时候
+            if subview.isKindOfClass(NSClassFromString("UITabBarButton")!) {
+                if item.tag == index {
+                    //获取点击的BTN
+                    
+                    for v in subview.subviews {
+                        if v.isKindOfClass(NSClassFromString("UITabBarSwappableImageView")!) {
+                        
+                            //实现item的动画效果
+                            v.transform = CGAffineTransformMakeScale(0.6, 0.6)
+                            UIView.animateWithDuration(0.2, delay: 0, usingSpringWithDamping: 0.1, initialSpringVelocity: 1, options: [], animations: { () -> Void in
+                                 v.transform = CGAffineTransformIdentity
+                                }, completion: { (_) -> Void in
+//                                     print("OK")
+                            })
+                        }
+                    }
+                    
+                }
+                index++
+            }
+            
+        
+        }
         
     }
-    
-    
+
 }
+
