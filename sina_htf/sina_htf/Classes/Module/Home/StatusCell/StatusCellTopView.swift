@@ -28,7 +28,7 @@ class StatusCellTopView: UIView {
             mbrankImage.image = status?.user?.mbrankImage
             verified_type_image.image = status?.user?.verified_type_image
             //TODO: 后续完善
-            timeLable.text = status?.created_at
+            timeLable.text = NSDate.sinaDate(status?.created_at ?? "")?.fullText()
             sourceLable.text = status?.source
             
             contentLable.text = status?.text

@@ -18,6 +18,7 @@
 		7C1547E81C395F6200F198FF /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1547E21C395F6200F198FF /* SDBrowserImageView.m */; };
 		7C1547E91C395F6200F198FF /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1547E41C395F6200F198FF /* SDPhotoBrowser.m */; };
 		7C1547EA1C395F6200F198FF /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1547E71C395F6200F198FF /* SDWaitingView.m */; };
+		7C1547EF1C396E2B00F198FF /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1547EE1C396E2B00F198FF /* NSDate+Extension.swift */; };
 		7C45263D1C22894A0001CF3C /* UILable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C45263C1C22894A0001CF3C /* UILable+Extension.swift */; };
 		7C45263F1C228B810001CF3C /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C45263E1C228B810001CF3C /* UIButton+Extension.swift */; };
 		7C61B05E1C2A691000008C04 /* UIView+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C61B05D1C2A691000008C04 /* UIView+ViewController.swift */; };
@@ -92,6 +93,7 @@
 		7C1547E61C395F6200F198FF /* SDWaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWaitingView.h; sourceTree = "<group>"; };
 		7C1547E71C395F6200F198FF /* SDWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWaitingView.m; sourceTree = "<group>"; };
 		7C1547EB1C395FAE00F198FF /* sina_htf-Bridge-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sina_htf-Bridge-header.h"; sourceTree = "<group>"; };
+		7C1547EE1C396E2B00F198FF /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
 		7C45263C1C22894A0001CF3C /* UILable+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILable+Extension.swift"; sourceTree = "<group>"; };
 		7C45263E1C228B810001CF3C /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		7C61B05D1C2A691000008C04 /* UIView+ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ViewController.swift"; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				7C45263E1C228B810001CF3C /* UIButton+Extension.swift */,
 				7CF141211C24EACA008B6329 /* UIColor+Extension.swift */,
 				7C61B05D1C2A691000008C04 /* UIView+ViewController.swift */,
+				7C1547EE1C396E2B00F198FF /* NSDate+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -614,6 +617,7 @@
 			files = (
 				7CDBF8921C1EA3EB00579199 /* UserAccountViewModel.swift in Sources */,
 				7CE211ED1C1BE54C004212F1 /* ProfileTableViewController.swift in Sources */,
+				7C1547EF1C396E2B00F198FF /* NSDate+Extension.swift in Sources */,
 				7C1547E91C395F6200F198FF /* SDPhotoBrowser.m in Sources */,
 				7C6275761C297D550094B043 /* WBRefreshControl.swift in Sources */,
 				7CE211E71C1BE4F5004212F1 /* HomeTableViewController.swift in Sources */,
